@@ -1,0 +1,415 @@
+\documentclass[11pt,a4paper]{report}
+\usepackage[dvips]{graphicx}           
+\usepackage[brazil]{babel}           
+\usepackage{color}            
+\usepackage[latin1]{inputenc}           
+\usepackage[normalem]{ulem}
+\usepackage{enumitem}
+\usepackage{float}
+
+\usepackage{pdflscape}
+\usepackage{ragged2e}
+
+
+
+\usepackage[most]{tcolorbox}
+
+\usepackage{pdflscape}
+
+\usepackage{multirow}
+
+\usepackage[
+top    = 2.50cm,
+bottom = 2.50cm,
+left   = 2.60cm,
+right  = 2.50cm]{geometry}
+
+\usepackage{caption}
+\captionsetup[table]{name=Quadro}
+
+\usepackage{tabularx}
+\usepackage{booktabs} % para linhas na table colorida
+\usepackage[table]{xcolor}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{rotating}
+\setlength{\aboverulesep}{0pt}
+\setlength{\belowrulesep}{0pt}
+
+\usepackage{palatino} % fonte
+\usepackage{setspace} % espaçamento
+
+\newcolumntype{Y}{>{\RaggedRight\arraybackslash}X}
+
+\begin{document}
+	
+	\noindent
+	\begin{minipage}[c]{0.10\linewidth}
+		\centering
+		\includegraphics[width=1cm]{ufs_vertical_positiva.png}
+	\end{minipage}\hfill
+	\begin{minipage}[c]{0.75\linewidth}
+		\centering
+	{\fontsize{11.5}{15}\selectfont	\textsc{Universidade Federal de Sergipe}}\\
+		{\fontsize{11.5}{15}\selectfont\textsc{Pró-Reitoria de Pós-Graduação e Pesquisa}}\\
+		{\fontsize{11.5}{15}\selectfont\textsc{Programa de Pós-Graduação em Ciências Farmacêuticas}}
+	\end{minipage}\hfill
+	\begin{minipage}[c]{0.10\linewidth}
+		\centering
+		\includegraphics[width=1.75cm]{ppgcf_logo.jpeg}
+	\end{minipage}
+	
+	\vspace{.5cm}	
+
+	\onehalfspacing
+	
+	\begin{tcolorbox}[
+		enhanced,
+		colback=gray!10,
+		colframe=black,
+		boxrule=0.35pt,
+		arc=2mm,
+		boxsep=4pt,
+		top=3pt,
+		bottom=3pt,
+		width=\textwidth
+		]
+		
+		\textbf{Componente Curricular:} FARMA0048 -- Bioestatística
+		
+		\textbf{Docente:} Prof. Dr. Sadraque E. F. Lucena
+		
+		\begin{tabular*}{\linewidth}{@{}l@{\extracolsep{\fill}}l@{}}
+			\textbf{Carga Horária:} 30 h &
+			\textbf{Horário:} Segundas e Terças, 14h00--18h00
+		\end{tabular*}
+		
+	\end{tcolorbox}
+	\vspace{.3cm}
+
+\begin{itemize}[label={},itemindent=-2em,leftmargin=2em]
+\item {\bf Ementa:} Fundamentos da Bioestatística aplicados à pesquisa em Ciências Farmacêuticas. Delineamentos de estudos experimentais e observacionais. Tipos de variáveis e organização de bancos de dados. Estatística descritiva e visualização de dados. Princípios da inferência estatística, estimativas, intervalos de confiança, testes de hipóteses e tamanhos de efeito. Comparação entre grupos e avaliação dos pressupostos dos modelos. Introdução aos modelos de regressão linear, logística e de Poisson aplicados à pesquisa biomédica. Medidas de acurácia diagnóstica e interpretação de curvas ROC. Introdução à análise de sobrevivência e metanálise. Planejamento amostral, princípios de reprodutibilidade, elaboração de tabelas e gráficos para publicação científica e interpretação crítica de resultados estatísticos. Utilização de software para análise, visualização e apresentação de dados.
+
+\item {\bf Objetivos:} Capacitar o pós-graduando a planejar, executar, interpretar e comunicar análises estatísticas aplicadas à pesquisa em Ciências Farmacêuticas, utilizando métodos apropriados e ferramentas computacionais reprodutíveis para produção de artigos científicos de qualidade.
+
+\item {\bf Metodologia:} A disciplina será desenvolvida por meio de aulas expositivo-dialogadas, de\-mons\-tra\-ções práticas e atividades em laboratório de informática utilizando a linguagem R e o ambiente RStudio. Serão empregados bancos de dados reais e exemplos extraídos da literatura em Ciências Farmacêuticas e da produção científica do Programa, estimulando a resolução de problemas e a tomada de decisões sobre a escolha e interpretação de métodos estatísticos. As atividades incluirão organização e exploração de dados, construção de tabelas e gráficos, execução de análises estatísticas, interpretação crítica de resultados e discussão de artigos científicos, priorizando uma abordagem aplicada e reprodutível.
+
+\item {\bf Habilidades e Competências:} Ao final da disciplina, espera-se que o estudante seja capaz de (i) compreender os princípios da Bioestatística aplicados à pesquisa em Ciências Farmacêuticas; (ii) organizar, importar e preparar bancos de dados para análise estatística; (iii) selecionar métodos estatísticos adequados ao delineamento do estudo e à natureza das variáveis; (iv) realizar análises estatísticas utilizando a linguagem R; (v) interpretar corretamente estimativas, intervalos de confiança, tamanhos de efeito e testes de hipóteses; (vi) produzir tabelas, gráficos e resultados compatíveis com as recomendações para pu\-bli\-ca\-ção científica; (vii) interpretar criticamente métodos estatísticos empregados na literatura científica; (viii) comunicar resultados estatísticos de forma clara, objetiva e cientificamente fundamentada.
+
+\item {\bf Avaliação:} A avaliação será contínua e baseada no desempenho do estudante nas atividades práticas desenvolvidas ao longo da disciplina. Serão considerados exercícios de análise de dados e interpretação de artigos científicos (40\%) e um projeto final aplicado (60\%), consistindo na análise estatística de um conjunto de dados relacionado à pesquisa do estudante (ou disponibilizado pelo docente), com entrega do script em R, dos resultados obtidos e da respectiva interpretação científica.
+\end{itemize}
+
+%\newpage
+\noindent {\bf Conteúdo Programático:}
+
+\begin{enumerate}
+	\singlespacing
+	\item Fundamentos da Bioestatística aplicada à pesquisa em Ciências Farmacêuticas
+	\begin{enumerate}[label*=\arabic*.]
+		\item Papel da Bioestatística na pesquisa científica.
+		\item Delineamentos de estudos experimentais e observacionais.
+		\item Tipos de variáveis, desfechos e confundimento.
+		\item Erros tipo I e II, intervalos de confiança e tamanho de efeito.
+		\item Introdução ao ambiente R e RStudio.
+		\item Importação e organização de bancos de dados.
+	\end{enumerate}
+	\vspace{.3cm}
+	\item Exploração e descrição dos dados
+	\begin{enumerate}[label*=\arabic*.]
+		\item Limpeza e preparação de bancos de dados.
+		\item Tratamento de dados faltantes.
+		\item Criação de variáveis.
+		\item Estatística descritiva.
+		\item Construção de tabelas descritivas.
+		\item Visualização de dados utilizando o pacote \texttt{ggplot2}.
+	\end{enumerate}
+	\vspace{.3cm}
+	\item Inferência estatística
+	\begin{enumerate}[label*=\arabic*.]
+		\item Formulação de hipóteses e escolha do método estatístico.
+		\item Pressupostos dos testes estatísticos.
+		\item Comparação entre grupos por métodos paramétricos e não paramétricos.
+		\item Testes \textit{t}, Mann--Whitney, ANOVA, Kruskal--Wallis, Qui-quadrado e Exato de Fisher.
+		\item Interpretação dos resultados estatísticos.
+	\end{enumerate}
+	\vspace{.3cm}
+	\item Modelagem estatística aplicada
+	\begin{enumerate}[label*=\arabic*.]
+		\item Regressão linear.
+		\item Regressão logística.
+		\item Regressão de Poisson.
+		\item Interpretação de coeficientes e medidas de associação.
+		\item Ajuste por confundimento e seleção de variáveis.
+	\end{enumerate}
+	\vspace{.3cm}
+	\item Métodos aplicados à pesquisa em Ciências Farmacêuticas
+	\begin{enumerate}[label*=\arabic*.]
+		\item Medidas de acurácia diagnóstica.
+		\item Sensibilidade, especificidade, valores preditivos e curva ROC.
+		\item Introdução à análise de sobrevivência.
+		\item Introdução à metanálise e interpretação de \textit{forest plots}, \textit{funnel plots} e heterogeneidade.
+	\end{enumerate}
+	\vspace{.3cm}
+	\item Comunicação científica e reprodutibilidade
+	\begin{enumerate}[label*=\arabic*.]
+		\item Elaboração de tabelas e gráficos para publicação científica.
+		\item Redação da seção de métodos estatísticos.
+		\item Interpretação crítica de resultados estatísticos.
+		\item Princípios de reprodutibilidade utilizando R.
+	\end{enumerate}
+\end{enumerate}
+
+%\newpage
+\noindent {\bf Bibliografia:}\\
+
+{\it Básica:}
+\begin{itemize}
+	\item AGRESTI, Alan. An introduction to categorical data analysis. 3. ed. Hoboken: John Wiley \& Sons, 2019. 400 p.
+	\item HARRELL JR., F. E. Regression Modeling Strategies. 2. ed. Cham: Springer, 2015.
+	\item WICKHAM, H.; ÇETINKAYA-RUNDEL, M.; GROLEMUND, G. R for Data Science. 2. ed. Sebastopol: O'Reilly, 2023.
+	\item MOTULSKY, H. J. Intuitive Biostatistics. 4. ed. New York: Oxford University Press, 2022.
+	\item NAVARRO, Danielle; FOXCROFT, David. Learning Statistics with JAMOVI: a tutorial for beginners in statistical analysis. 2025.
+\end{itemize}
+
+{\it Complementar:}
+\begin{itemize}
+	\item ALTMAN, D. G. Practical Statistics for Medical Research. London: Chapman \& Hall/CRC, 1991.
+	\item KIRKWOOD, B. R.; STERNE, J. A. C.	Essential Medical Statistics. 2. ed. Blackwell, 2003.
+	\item HOSMER, D. W.; LEMESHOW, S.; STURDIVANT, R. X. Applied Logistic Regression. 3. ed. Wiley, 2013.
+	\item WOOD, S. N. Generalized Additive Models. 2. ed. CRC Press, 2017.
+\end{itemize}
+
+
+
+% \newpage
+%
+% \clearpage
+%
+% \newgeometry{
+	% 	left=1.5cm,
+	% 	right=1.5cm,
+	% 	top=1.8cm,
+	% 	bottom=1.8cm
+	% }
+%
+% \begin{landscape}
+	% 	
+	% 	\begin{table}[p]
+		% 		\centering
+		% 		\caption{Cronograma de aulas de FARMA0048 -- Bioestatística para 2026-2.}
+		% 		\label{tab:cronograma}
+		% 		
+		% 		\scriptsize
+		% 		\renewcommand{\arraystretch}{1.25}
+		% 		
+		% 		\begin{tabularx}{\linewidth}{
+				% 				>{\centering\arraybackslash}p{1.3cm}
+				% 				>{\RaggedRight\arraybackslash}p{3.2cm}
+				% 				Y
+				% 				Y
+				% 				Y
+				% 				Y}
+			% 			
+			% 			\toprule
+			% 			
+			% 			\textbf{Encontro} &
+			% 			\textbf{Competência} &
+			% 			\textbf{Pergunta norteadora} &
+			% 			\textbf{Conteúdo} &
+			% 			\textbf{Ferramentas e métodos} &
+			% 			\textbf{Produto esperado}
+			% 			\\
+			% 			
+			% 			\midrule
+			% 			
+			% 		1 &
+			% 		Formular uma pergunta científica e planejar a análise &
+			% 		Minha pergunta científica pode ser respondida com os dados que pretendo coletar? &
+			% 		Papel da Bioestatística; pergunta científica; hipóteses; delineamentos; variáveis; desfechos; confundimento; introdução aos DAGs; significância estatística versus relevância clínica; noções de tamanho amostral e poder estatístico; organização de projetos reprodutíveis no RStudio. &
+			% 		Importação de dados (Excel/CSV); organização de projetos; scripts; primeiros comandos do \texttt{tidyverse}; exploração inicial do banco. &
+			% 		Pergunta científica definida; identificação do desfecho, exposição e possíveis confundidores; banco importado e organizado. \\
+			% 		
+			% 		\hline
+			% 		
+			% 		2 &
+			% 		Preparar e explorar os dados &
+			% 		Como garantir que meus dados estejam prontos para análise? &
+			% 		Qualidade dos dados; inconsistências; tratamento de dados faltantes; criação e recodificação de variáveis; estatística descritiva; exploração gráfica. &
+			% 		Limpeza de dados; \texttt{ggplot2}; \texttt{gtsummary}; Tabela 1; histogramas; boxplots; gráficos de dispersão e barras. &
+			% 		Banco de dados organizado, documentado e acompanhado da Tabela 1 e gráficos exploratórios. \\
+			% 		
+			% 		\hline
+			% 		
+			% 		3 &
+			% 		Comparar grupos e testar hipóteses &
+			% 		Qual método estatístico responde à minha hipótese respeitando os pressupostos dos dados? &
+			% 		Processo de decisão estatística; escolha do método conforme delineamento e tipo de desfecho; pressupostos; interpretação; tamanho de efeito; intervalo de confiança. &
+			% 		Fluxograma de decisão; teste \textit{t}; Mann--Whitney; ANOVA; Kruskal--Wallis; Qui-quadrado; Fisher; verificação dos pressupostos; medidas de tamanho de efeito. &
+			% 		Escolha justificada do método estatístico e interpretação crítica dos resultados. \\
+			% 		
+			% 		\hline
+			% 		
+			% 		4 &
+			% 		Modelar associações e controlar confundimento &
+			% 		A associação observada permanece após controlar outros fatores? &
+			% 		Modelagem estatística; confundimento; regressão linear múltipla; regressão logística; interpretação dos coeficientes; diagnóstico dos modelos; interpretação clínica dos resultados. &
+			% 		Regressão linear; regressão logística; DAG como apoio à definição do conjunto de ajuste; resíduos; VIF; Distância de Cook; interpretação de $\beta$, OR e IC95\%. &
+			% 		Modelo estatístico ajustado, diagnóstico realizado e redação preliminar da seção de Resultados. \\
+			% 		
+			% 		\hline
+			% 		
+			% 		5 &
+			% 		Modelar situações especiais &
+			% 		Quando a pergunta científica exige métodos diferentes da regressão tradicional? &
+			% 		Desfechos frequentes; medidas de acurácia diagnóstica; desempenho de testes; introdução à análise de sobrevivência. &
+			% 		Regressão de Poisson com variância robusta; Razão de Prevalência; sensibilidade; especificidade; VPP; VPN; curva ROC; AUC; Kaplan--Meier e Log-rank (conceitualmente). &
+			% 		Interpretação adequada de métodos específicos aplicados às Ciências Farmacêuticas. \\
+			% 		
+			% 		\hline
+			% 		
+			% 		6 &
+			% 		Comunicar evidências científicas &
+			% 		Como apresentar resultados de forma clara, transparente e publicável? &
+			% 		Escrita da seção Métodos Estatísticos; redação dos Resultados; construção de tabelas e figuras; boas práticas; leitura crítica de revisões sistemáticas e metanálises. &
+			% 		Diretrizes SAMPL, STROBE e CONSORT; \texttt{ggplot2}; tabelas em padrão internacional; interpretação de Forest Plot e heterogeneidade ($I^2$). &
+			% 		Primeira versão das seções Métodos Estatísticos e Resultados do manuscrito. \\
+			% 		
+			% 		\hline
+			% 		
+			% 		7 &
+			% 		Aplicar a estratégia analítica ao próprio projeto &
+			% 		Minha análise estatística responde adequadamente à minha pergunta científica? &
+			% 		Oficina prática de consultoria estatística. Discussão da pergunta científica, hipótese, desfecho, exposição, confundidores e estratégia analítica proposta. &
+			% 		Discussão individual dos projetos; execução das análises; revisão do código; interpretação dos resultados; checklist de qualidade estatística. &
+			% 		Análise estatística completa do projeto individual, com script organizado, tabelas, gráficos e interpretação. \\
+			% 		
+			% 		\hline
+			% 		
+			% 		8 &
+			% 		Defender a estratégia analítica &
+			% 		Consigo justificar minhas escolhas metodológicas perante revisores e banca? &
+			% 		Apresentação dos projetos; discussão crítica da estratégia analítica; limitações; implicações dos resultados; comunicação científica oral. &
+			% 		Apresentação oral estruturada; defesa da escolha do modelo estatístico; discussão entre os participantes. &
+			% 		Apresentação final do projeto, justificando a pergunta científica, a estratégia analítica, os resultados e suas limitações. \\
+			% 		
+			% 			
+			% 			\bottomrule
+			% 			
+			% 		\end{tabularx}
+		% 		
+		% 	\end{table}
+	% 	
+	% \end{landscape}
+%
+% \newpage
+% \begin{landscape}
+	% 	
+	% 	\begin{table}[p]
+		% 		\centering
+		% 		\caption{Cronograma de aulas de FARMA0048 -- Bioestatística para 2026-2 (Reformulado e Expandido).}
+		% 		\label{tab:cronograma}
+		% 		
+		% 		\scriptsize
+		% 		\renewcommand{\arraystretch}{1.25}
+		% 		
+		% 		\begin{tabularx}{\linewidth}{
+				% 				>{\centering\arraybackslash}p{1.3cm}
+				% 				>{\RaggedRight\arraybackslash}p{3.2cm}
+				% 				Y
+				% 				Y
+				% 				Y
+				% 				Y}
+			% 			
+			% 			\toprule
+			% 			
+			% 			\textbf{Encontro} &
+			% 			\textbf{Competência} &
+			% 			\textbf{Pergunta norteadora} &
+			% 			\textbf{Conteúdo} &
+			% 			\textbf{Ferramentas e métodos} &
+			% 			\textbf{Produto esperado}
+			% 			\\
+			% 			
+			% 			\midrule
+			% 			
+			% 			1 &
+			% 			Formular uma pergunta científica, estruturar o DAG e dimensionar a amostra &
+			% 			Minha pergunta científica é viável, possui poder estatístico e pode ser respondida com o delineamento proposto? &
+			% 			Papel da Bioestatística; pergunta científica; hipóteses; delineamentos observacionais e experimentais; variáveis e confundimento; introdução aos DAGs; significância estatística versus relevância clínica; dimensionamento amostral, poder estatístico ($1-\beta$) e erros Tipo I e II; organização de projetos reprodutíveis no RStudio. &
+			% 			Importação de dados (Excel/CSV); organização de projetos; scripts; primeiros comandos do \texttt{tidyverse}; pacote \texttt{ggdag}; cálculo de $n$ com pacotes \texttt{pwr}/\texttt{WebPower} e software G*Power. &
+			% 			Pergunta científica definida; identificação do desfecho, exposição e confundidores (DAG); cálculo amostral justificável para CEP/CEUA; banco importado e organizado. \\
+			% 			
+			% 			\hline
+			% 			
+			% 			2 &
+			% 			Preparar, diagnosticar e explorar os dados &
+			% 			Como garantir a qualidade do banco, tratar dados ausentes sem gerar viés e explorar as variáveis? &
+			% 			Qualidade e padronização dos dados (\textit{Tidy Data}); inconsistências; diagnóstico de dados faltantes (MCAR, MAR, MNAR) e introdução à Imputação Múltipla; criação e recodificação de variáveis; estatística descritiva; exploração gráfica. &
+			% 			Limpeza de dados com \texttt{dplyr}; diagnóstico de \textit{missings} com \texttt{naniar} (e visão do \texttt{mice}); visualização no \texttt{ggplot2}; construção automatizada da Tabela 1 com \texttt{gtsummary}. &
+			% 			Banco de dados organizado, documentado, acompanhado de relatório de \textit{missings}, Tabela 1 descritiva e gráficos exploratórios. \\
+			% 			
+			% 			\hline
+			% 			
+			% 			3 &
+			% 			Comparar grupos e testar hipóteses (amostras independentes e pareadas) &
+			% 			Qual método estatístico responde à minha hipótese respeitando os pressupostos e o delineamento (independente ou pareado)? &
+			% 			Processo de decisão estatística; verificação de pressupostos (Shapiro--Wilk, Levene); comparações de 2 grupos (independente e pareado: testes \textit{t}, Mann--Whitney, \textit{t} pareado, Wilcoxon); comparações de 3+ grupos (ANOVA 1-via, Kruskal--Wallis, ANOVA Medidas Repetidas, Friedman); testes Post-Hoc (Tukey, Bonferroni, Dunnett); Qui-quadrado e Fisher. &
+			% 			Fluxograma de decisão; pacotes \texttt{rstatix}, \texttt{car} e \texttt{ggpubr} para inclusão automática de $p$-valores e barras de erro nos gráficos do \texttt{ggplot2}; verificação de pressupostos e tamanho de efeito ($d$ de Cohen, $\eta^2$). &
+			% 			Escolha justificada do método estatístico, verificação dos pressupostos, gráfico comparativo com marcações de \textit{post-hoc} e interpretação crítica dos resultados. \\
+			% 			
+			% 			\hline
+			% 			
+			% 			4 &
+			% 			Modelar associações multivariadas e controlar confundimento &
+			% 			A associação observada permanece após controlar múltiplos fatores de confusão? &
+			% 			Modelagem estatística multivariada; ajuste por confundimento guiado pelo DAG; regressão linear múltipla; regressão logística binária; regressão de Poisson com variância robusta (Razão de Prevalência em desfechos frequentes); interpretação dos coeficientes ($\beta$, OR, RP); diagnóstico do modelo (resíduos, VIF, Distância de Cook). &
+			% 			Funções \texttt{lm()}, \texttt{glm()}, pacote \texttt{sandwich} + \texttt{lmtest} (para Poisson Robusta), pacote \texttt{performance} para diagnóstico, e \texttt{gtsummary} (\texttt{tbl\_regression}). &
+			% 			Modelo estatístico ajustado, diagnóstico de multicolinearidade/resíduos realizado, tabela comparativa de modelos brutos/ajustados e redação preliminar dos Resultados. \\
+			% 			
+			% 			\hline
+			% 			
+			% 			5 &
+			% 			Modelar situações especiais (Diagnóstico, Concordância e Sobrevida) &
+			% 			Quando a pergunta científica exige validação de testes, reprodutibilidade analítica ou análise de tempo até o evento? &
+			% 			Medidas de acurácia diagnóstica (sensibilidade, especificidade, VPP, VPN, Curva ROC e AUC); métodos de concordância e reprodutibilidade (gráfico de Bland--Altman, Coeficiente ICC e Kappa de Cohen); introdução à análise de sobrevida (censura, Kaplan--Meier, Log-rank e Modelo de Cox). &
+			% 			Pacotes \texttt{pROC} (Curvas ROC), \texttt{BlandAltmanLeh} e \texttt{irr} (Concordância/Bland--Altman), \texttt{survival} e \texttt{survminer} (Curvas de Kaplan--Meier e teste Log-rank). &
+			% 			Interpretação de métodos especiais aplicados às Ciências Farmacêuticas (Curva ROC com ponto de corte ótimo, gráfico de Bland--Altman ou curva de Kaplan--Meier). \\
+			% 			
+			% 			\hline
+			% 			
+			% 			6 &
+			% 			Interpretar evidências e comunicar resultados científicos &
+			% 			Como apresentar resultados de forma clara, transparente, reprodutível e publicável? &
+			% 			Introdução à Metanálise e interpretação de \textit{Forest Plots}, \textit{Funnel Plots} e heterogeneidade ($I^2$); diretrizes de transparência (SAMPL, STROBE, CONSORT); escrita da seção de Métodos e Resultados; reprodutibilidade via RMarkdown/Quarto. &
+			% 			Pacotes \texttt{meta} e \texttt{metafor}; compilação de relatórios reprodutíveis em \texttt{rmarkdown} ou \texttt{Quarto}; diretrizes internacionais de publicação científica. &
+			% 			Primeira versão completa das seções de Métodos Estatísticos e Resultados do manuscrito/relatório final, acompanhada de gráficos e tabelas em padrão de publicação. \\
+			% 			
+			% 			\hline
+			% 			
+			% 			7 &
+			% 			Aplicar a estratégia analítica ao projeto (Oficina de Consultoria) &
+			% 			Minha análise estatística responde adequadamente à minha pergunta científica no meu banco próprio ou na PNS 2019? &
+			% 			Oficina prática de consultoria e mentoria \textit{peer-to-peer}; auditoria do script no R para as duas opções de trabalho: Trilha A (dados experimentais de bancada) ou Trilha B (dados populacionais da PNS 2019); revisão do conjunto de ajuste e diagnósticos dos modelos. &
+			% 			Discussão individual dos projetos; execução e depuração do código no RStudio; verificação de pressupostos e rotinas de análise; checklist de qualidade estatística. &
+			% 			Análise estatística completa do projeto individual concluída, com script em R sem erros, reprodutível, organizado e acompanhado de tabelas e figuras. \\
+			% 			
+			% 			\hline
+			% 			
+			% 			8 &
+			% 			Defender a estratégia analítica e apresentar os achados &
+			% 			Consigo justificar minhas escolhas metodológicas e responder aos questionamentos de bancas e revisores? &
+			% 			Apresentação oral dos projetos; defesa da escolha dos métodos estatísticos e modelos; discussão das limitações, do tamanho do efeito e da relevância clínica/biológica dos achados; arguição simulando \textit{peer-review} de periódicos. &
+			% 			Apresentação oral estruturada; defesa da estratégia analítica e da interpretação dos dados; discussão crítica entre os participantes. &
+			% 			Apresentação final do projeto realizada com sucesso e entrega do pacote reprodutível definitivo (Relatório compilado + Script \texttt{.R} / \texttt{.Rmd}). \\
+			% 			
+			% 			\bottomrule
+			% 			
+			% 		\end{tabularx}
+		% 		
+		% 	\end{table}
+	% 	
+	% \end{landscape}
+%
+% \restoregeometry
+
+\end{document}

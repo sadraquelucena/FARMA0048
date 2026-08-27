@@ -1,0 +1,16 @@
+---
+format:
+  html:
+    toc: false
+    anchor-sections: false
+---
+
+
+## Informações da Disciplina
+
+- **Componente curricular:** FARMA0048 -- Bioestatística
+- **Carga Horária:** 30 horas
+- **Unidade Responsável:** Programa de Pós-Graduação em Ciências Farmacêuticas
+- **Docente Responsável:** Prof. Dr. Sadraque E. F. Lucena
+- **E-mail Docente:** sadraquelucena@academicos.ufs.br
+- **Plano de Ensino da Disciplina:**  [Baixe aqui](/plano_de_ensino/plano_de_ensino_FARMA0048-BIOESTATÍSTICA.pdf){target="_blank"}
