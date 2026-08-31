@@ -2,7 +2,7 @@
 title: "Exploração, descrição e visualização de dados"
 subtitle: | # indica que o campo name terá múltiplas linhas
     Prof. Dr. Sadraque E. F. Lucena<br>
-    <a href="http://sadraquelucena.github.io/inferencia1" style="font-size:.8em;">http://sadraquelucena.github.io/inferencia1</a><br>
+    <a href="http://sadraquelucena.github.io/FARMA0048" style="font-size:.8em;">http://sadraquelucena.github.io/FARMA0048</a><br>
 author:
   name: |
     *FARMA0048 - Bioestatística*<br>
