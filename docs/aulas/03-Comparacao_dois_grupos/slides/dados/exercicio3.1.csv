@@ -1,0 +1,241 @@
+﻿id,grupo,idade_anos,sexo,imc_kg_m2,pas_baseline_mmhg,pas_3m_mmhg,colesterol_total_3m_mg_dl,adesao_mgl_4m,dor_4m_0_10,evento_adverso_30d,evento_grave_30d,readmissao_30d,reacao_adversa_rara_30d
+1,Intervenção,65,M,29.0,144.6,129.3,221.3,3,4,Não,Não,Não,Não
+2,Intervenção,60,F,28.8,143.9,118.2,214.9,2,1,Não,Não,Não,Não
+3,Intervenção,64,F,26.1,134.5,115.1,241.2,3,2,Não,Não,Não,Não
+4,Intervenção,71,F,28.3,159.1,127.2,171.8,1,3,Não,Não,Não,Não
+5,Intervenção,59,M,30.7,144.1,107.6,211.6,2,2,Sim,Não,Não,Não
+6,Intervenção,52,M,28.0,161.3,136.8,182.4,3,2,Não,Não,Não,Não
+7,Intervenção,60,M,30.1,123.9,119.3,203.0,2,3,Não,Não,Não,Não
+8,Intervenção,62,M,33.7,146.1,136.7,251.3,1,2,Não,Não,Não,Não
+9,Intervenção,48,M,33.4,179.8,142.5,215.1,4,3,Não,Não,Não,Não
+10,Intervenção,59,F,25.0,157.4,138.4,216.7,0,4,Sim,Não,Não,Não
+11,Intervenção,60,M,30.9,152.0,131.2,167.8,4,4,Não,Não,Não,Não
+12,Intervenção,58,F,25.5,148.7,138.1,218.7,3,2,Não,Não,Não,Não
+13,Intervenção,58,M,28.0,126.2,135.4,177.7,4,4,Não,Não,Não,Não
+14,Intervenção,55,F,27.6,135.8,108.0,200.4,4,1,Não,Não,Não,Não
+15,Intervenção,56,M,23.7,144.2,157.1,197.1,2,3,Não,Não,Não,Não
+16,Intervenção,58,M,34.1,152.5,130.2,232.2,2,2,Não,Não,Não,Não
+17,Intervenção,49,F,22.7,146.7,138.6,238.5,3,2,Não,Não,Não,Não
+18,Intervenção,63,M,27.8,151.8,136.4,169.5,2,1,Não,Não,Não,Não
+19,Intervenção,55,F,29.5,150.9,118.2,158.9,2,2,Não,Não,Não,Não
+20,Intervenção,51,F,29.4,141.1,125.2,247.6,1,1,Não,Não,Não,Não
+21,Intervenção,50,M,30.0,122.9,131.5,231.1,3,1,Não,Não,Não,Não
+22,Intervenção,66,M,30.8,150.9,116.2,198.7,3,2,Não,Não,Não,Não
+23,Intervenção,59,M,26.3,147.1,156.5,178.0,2,2,Não,Não,Não,Não
+24,Intervenção,46,F,32.7,145.8,110.3,209.8,4,3,Não,Não,Sim,Não
+25,Intervenção,52,M,33.4,155.1,128.8,230.7,3,1,Não,Não,Não,Não
+26,Intervenção,48,F,32.6,147.6,141.7,255.2,0,4,Não,Não,Não,Não
+27,Intervenção,50,F,27.3,132.9,129.1,190.5,3,3,Não,Não,Não,Não
+28,Intervenção,59,M,31.5,133.9,118.3,236.5,3,2,Não,Não,Não,Não
+29,Intervenção,62,M,32.7,143.2,152.0,176.9,3,4,Não,Não,Não,Não
+30,Intervenção,63,F,20.0,159.4,133.0,225.4,3,0,Não,Não,Não,Não
+31,Intervenção,55,M,25.7,160.0,123.8,263.7,2,2,Não,Não,Não,Não
+32,Intervenção,54,M,33.9,138.2,139.4,181.4,2,3,Não,Não,Não,Não
+33,Intervenção,49,M,24.9,150.6,117.4,206.0,4,2,Não,Não,Não,Não
+34,Intervenção,60,M,31.1,134.6,110.1,171.3,2,1,Não,Não,Não,Não
+35,Intervenção,46,F,27.4,143.8,149.3,242.6,2,2,Não,Não,Não,Não
+36,Intervenção,56,F,30.3,142.0,129.7,227.3,2,4,Não,Não,Não,Não
+37,Intervenção,59,F,33.0,140.1,141.7,203.3,2,3,Não,Não,Não,Não
+38,Intervenção,45,M,31.9,153.0,149.7,247.6,2,2,Não,Não,Não,Não
+39,Intervenção,66,F,33.6,179.8,126.9,212.7,2,3,Não,Não,Sim,Não
+40,Intervenção,45,F,37.0,158.2,100.2,179.7,3,3,Não,Não,Sim,Não
+41,Intervenção,58,F,33.1,123.4,150.0,226.0,1,3,Não,Não,Não,Não
+42,Intervenção,60,F,24.7,168.9,125.8,206.1,4,4,Não,Não,Sim,Não
+43,Intervenção,57,M,28.8,138.3,140.9,208.3,3,3,Não,Não,Sim,Não
+44,Intervenção,55,M,27.9,153.3,110.4,215.5,3,3,Não,Não,Sim,Não
+45,Intervenção,60,M,30.4,146.2,111.7,230.6,3,4,Não,Não,Sim,Não
+46,Intervenção,46,F,32.5,153.1,124.0,211.9,2,1,Não,Não,Não,Não
+47,Intervenção,60,M,28.0,160.6,140.5,234.9,2,1,Não,Não,Não,Não
+48,Intervenção,56,F,29.3,157.5,121.7,219.1,4,1,Sim,Não,Não,Não
+49,Intervenção,59,M,32.1,146.2,124.9,229.6,4,0,Sim,Não,Não,Não
+50,Intervenção,72,F,29.6,143.8,119.0,207.5,3,4,Não,Não,Não,Não
+51,Intervenção,45,F,34.0,144.3,141.6,233.4,4,1,Não,Não,Não,Não
+52,Intervenção,42,F,30.8,140.8,139.4,164.7,4,1,Não,Não,Sim,Não
+53,Intervenção,68,F,34.7,159.4,159.1,178.1,4,3,Sim,Não,Não,Não
+54,Intervenção,49,M,32.6,146.2,128.1,208.6,2,2,Não,Não,Não,Não
+55,Intervenção,68,M,33.4,184.6,159.7,205.6,4,1,Não,Não,Não,Não
+56,Intervenção,46,F,28.9,123.3,151.9,211.2,1,0,Não,Não,Não,Não
+57,Intervenção,71,M,32.8,140.0,144.5,173.8,4,1,Não,Não,Não,Não
+58,Intervenção,79,M,24.8,143.0,127.8,194.7,4,0,Não,Não,Não,Não
+59,Intervenção,54,M,33.7,145.8,137.7,215.8,1,2,Não,Não,Não,Não
+60,Intervenção,66,F,28.3,117.5,145.0,172.1,1,2,Não,Não,Não,Não
+61,Intervenção,57,M,28.9,162.3,126.3,200.8,2,0,Não,Não,Não,Não
+62,Intervenção,52,M,26.7,151.8,123.4,221.4,2,1,Não,Não,Não,Não
+63,Intervenção,53,F,30.3,138.0,132.8,210.7,2,2,Não,Não,Não,Não
+64,Intervenção,49,M,32.4,150.2,132.9,197.7,3,3,Não,Não,Não,Não
+65,Intervenção,58,M,26.7,141.8,141.7,198.7,3,2,Não,Não,Não,Não
+66,Intervenção,49,F,28.9,148.3,117.9,202.4,3,1,Não,Não,Não,Não
+67,Intervenção,65,F,32.9,126.6,125.7,169.5,2,3,Sim,Não,Sim,Não
+68,Intervenção,57,F,27.7,151.8,146.2,201.7,2,2,Não,Não,Não,Não
+69,Intervenção,47,F,21.7,153.1,126.3,163.2,2,1,Não,Não,Não,Não
+70,Intervenção,48,M,33.3,152.6,140.0,226.9,2,3,Não,Sim,Não,Não
+71,Intervenção,64,F,29.2,158.4,129.3,172.8,2,1,Não,Não,Sim,Não
+72,Intervenção,63,M,29.1,148.3,120.9,224.6,2,3,Não,Não,Sim,Não
+73,Intervenção,60,F,37.1,146.4,146.0,198.9,1,2,Não,Não,Não,Não
+74,Intervenção,61,F,27.8,143.3,137.6,153.8,3,4,Não,Não,Não,Não
+75,Intervenção,57,M,29.6,124.8,141.9,223.7,2,1,Sim,Não,Não,Não
+76,Intervenção,69,F,34.5,142.1,123.5,247.7,4,3,Não,Não,Não,Não
+77,Intervenção,53,M,37.5,127.2,153.0,227.4,3,4,Não,Não,Sim,Não
+78,Intervenção,58,F,37.4,154.4,107.7,234.3,2,4,Sim,Não,Não,Não
+79,Intervenção,68,M,28.9,158.2,111.1,193.5,2,3,Não,Não,Não,Não
+80,Intervenção,42,M,25.8,135.5,138.9,198.6,2,2,Não,Não,Não,Não
+81,Intervenção,61,F,32.4,163.6,119.1,203.7,2,3,Não,Não,Não,Não
+82,Intervenção,52,M,22.0,133.0,117.9,226.1,2,3,Não,Não,Sim,Não
+83,Intervenção,56,F,29.1,138.0,129.3,185.1,2,2,Não,Não,Sim,Não
+84,Intervenção,54,F,30.2,153.8,109.1,224.7,2,3,Não,Não,Não,Não
+85,Intervenção,47,F,29.0,147.9,136.7,196.8,2,2,Não,Não,Não,Não
+86,Intervenção,59,F,27.1,115.0,140.8,206.4,4,0,Sim,Não,Não,Não
+87,Intervenção,53,F,32.3,165.3,126.4,199.8,3,2,Não,Não,Não,Não
+88,Intervenção,46,M,30.4,182.2,135.6,208.6,2,4,Sim,Não,Sim,Não
+89,Intervenção,44,F,24.1,147.9,167.6,238.0,2,4,Não,Não,Não,Não
+90,Intervenção,59,F,31.8,156.4,122.4,183.9,3,3,Não,Não,Não,Não
+91,Intervenção,67,F,26.9,145.5,120.5,182.5,2,2,Não,Não,Não,Não
+92,Intervenção,53,F,31.5,167.7,133.2,222.4,1,1,Não,Não,Não,Não
+93,Intervenção,47,M,33.9,145.9,117.0,214.8,3,2,Não,Não,Sim,Não
+94,Intervenção,70,F,32.5,138.2,129.5,191.4,3,2,Não,Não,Não,Não
+95,Intervenção,56,M,27.5,167.1,145.6,182.2,1,3,Não,Não,Não,Não
+96,Intervenção,56,M,36.6,130.3,110.2,188.9,4,3,Não,Não,Não,Não
+97,Intervenção,55,F,29.6,135.1,112.8,198.5,2,3,Não,Não,Não,Não
+98,Intervenção,55,M,26.6,154.9,104.2,224.1,1,4,Não,Não,Não,Não
+99,Intervenção,62,F,23.9,151.7,109.1,251.9,3,0,Não,Não,Não,Não
+100,Intervenção,37,M,32.1,138.3,156.7,212.7,3,4,Não,Não,Não,Não
+101,Intervenção,45,F,25.2,131.6,112.3,201.4,4,2,Não,Não,Não,Não
+102,Intervenção,54,F,33.6,135.6,122.9,258.5,2,3,Não,Não,Sim,Não
+103,Intervenção,64,F,31.6,148.8,125.2,159.9,4,4,Não,Não,Sim,Não
+104,Intervenção,57,F,25.3,135.9,132.7,247.7,2,2,Não,Não,Sim,Não
+105,Intervenção,31,M,29.3,128.6,153.3,267.7,3,3,Sim,Não,Não,Não
+106,Intervenção,61,M,33.2,137.5,146.9,183.0,1,3,Não,Não,Não,Não
+107,Intervenção,33,F,21.4,136.1,137.5,195.3,2,2,Não,Não,Não,Não
+108,Intervenção,43,M,29.8,136.6,145.0,212.4,2,4,Não,Não,Não,Não
+109,Intervenção,54,F,20.0,156.0,128.6,211.7,2,4,Não,Não,Não,Não
+110,Intervenção,48,M,28.2,169.2,140.6,205.2,3,1,Sim,Não,Sim,Não
+111,Intervenção,53,M,27.3,159.6,123.5,220.1,2,1,Não,Não,Não,Não
+112,Intervenção,45,F,24.0,138.2,125.8,225.7,2,2,Não,Não,Não,Não
+113,Intervenção,57,F,24.3,145.0,128.6,135.0,4,3,Não,Não,Não,Não
+114,Intervenção,59,M,25.9,144.6,118.1,238.1,3,3,Não,Não,Não,Não
+115,Intervenção,47,F,30.2,155.3,111.2,201.2,3,3,Não,Não,Não,Não
+116,Intervenção,58,M,30.8,156.1,138.0,160.6,3,3,Não,Não,Não,Não
+117,Intervenção,56,F,31.6,163.0,118.7,275.0,4,2,Não,Não,Não,Não
+118,Intervenção,45,F,31.9,128.5,141.3,207.3,3,2,Não,Não,Não,Não
+119,Intervenção,46,M,31.4,171.1,136.8,218.1,2,2,Não,Não,Não,Não
+120,Intervenção,58,F,26.7,147.4,138.7,200.0,4,4,Não,Não,Não,Não
+121,Cuidado habitual,64,M,29.1,150.5,134.0,199.4,2,2,Não,Não,Não,Não
+122,Cuidado habitual,61,F,27.4,149.3,143.1,194.1,1,2,Não,Não,Sim,Não
+123,Cuidado habitual,70,F,33.0,152.2,115.8,172.5,4,1,Sim,Não,Não,Não
+124,Cuidado habitual,72,M,21.2,152.5,133.2,166.9,3,2,Sim,Não,Não,Não
+125,Cuidado habitual,56,F,26.0,158.8,139.9,251.6,2,3,Não,Não,Não,Não
+126,Cuidado habitual,59,M,24.6,141.6,140.9,217.4,2,4,Sim,Não,Não,Não
+127,Cuidado habitual,64,M,25.7,161.6,118.9,220.0,2,3,Não,Não,Sim,Não
+128,Cuidado habitual,54,M,36.2,160.3,114.1,159.1,4,2,Não,Não,Não,Não
+129,Cuidado habitual,66,M,24.8,164.5,121.4,172.1,3,4,Sim,Não,Sim,Não
+130,Cuidado habitual,53,M,38.3,147.5,132.1,221.9,2,3,Sim,Não,Não,Não
+131,Cuidado habitual,58,M,27.2,154.3,117.4,191.2,2,2,Sim,Não,Não,Não
+132,Cuidado habitual,59,F,26.9,153.7,127.7,185.4,2,3,Não,Não,Não,Não
+133,Cuidado habitual,59,M,28.1,148.8,114.1,191.8,3,2,Não,Não,Não,Não
+134,Cuidado habitual,56,M,29.7,155.0,142.0,217.9,1,3,Não,Não,Não,Não
+135,Cuidado habitual,60,F,28.1,141.5,139.1,222.8,4,2,Não,Não,Não,Sim
+136,Cuidado habitual,62,F,28.8,153.4,114.4,190.7,4,2,Não,Não,Não,Não
+137,Cuidado habitual,72,M,32.1,140.5,149.5,233.4,3,2,Não,Não,Não,Não
+138,Cuidado habitual,47,F,39.1,174.4,134.3,191.6,3,1,Não,Não,Não,Não
+139,Cuidado habitual,49,M,24.6,125.2,149.7,171.5,3,2,Sim,Não,Não,Não
+140,Cuidado habitual,51,M,26.9,182.5,136.1,171.7,2,4,Sim,Não,Não,Não
+141,Cuidado habitual,58,F,27.6,134.2,122.4,188.9,1,2,Sim,Não,Não,Não
+142,Cuidado habitual,55,F,33.5,154.7,172.3,227.5,3,2,Não,Não,Sim,Não
+143,Cuidado habitual,72,F,27.9,146.1,122.2,176.8,2,1,Não,Não,Não,Não
+144,Cuidado habitual,36,M,31.2,150.2,135.2,197.6,4,2,Não,Não,Não,Sim
+145,Cuidado habitual,56,M,33.7,160.0,131.5,185.2,2,3,Sim,Sim,Não,Não
+146,Cuidado habitual,67,F,29.2,147.4,112.4,223.4,2,1,Não,Não,Não,Não
+147,Cuidado habitual,67,M,26.7,141.5,136.2,201.2,3,0,Não,Não,Sim,Não
+148,Cuidado habitual,39,M,30.0,156.4,145.6,250.2,3,2,Não,Não,Não,Não
+149,Cuidado habitual,56,M,29.6,157.3,146.4,249.8,0,4,Não,Não,Não,Não
+150,Cuidado habitual,48,M,27.9,145.7,119.6,231.5,1,1,Não,Não,Não,Não
+151,Cuidado habitual,44,F,27.5,142.8,116.1,190.8,3,2,Sim,Sim,Não,Não
+152,Cuidado habitual,51,M,25.5,144.9,151.2,203.3,1,4,Não,Não,Não,Não
+153,Cuidado habitual,50,M,23.8,160.1,162.5,168.6,1,3,Não,Sim,Sim,Não
+154,Cuidado habitual,54,M,27.5,161.3,157.0,176.8,0,2,Não,Não,Não,Não
+155,Cuidado habitual,74,M,30.1,125.2,138.4,229.1,4,3,Não,Não,Não,Sim
+156,Cuidado habitual,58,M,27.9,147.8,126.0,192.0,1,3,Não,Não,Não,Não
+157,Cuidado habitual,54,M,25.0,123.4,128.2,218.6,1,3,Não,Não,Não,Não
+158,Cuidado habitual,51,F,29.6,154.8,145.0,199.2,2,2,Não,Não,Sim,Não
+159,Cuidado habitual,58,M,30.4,138.8,140.6,214.5,1,1,Sim,Não,Não,Não
+160,Cuidado habitual,53,F,32.4,160.6,145.2,209.2,3,1,Não,Não,Não,Não
+161,Cuidado habitual,47,F,29.3,156.1,150.0,226.0,2,4,Não,Não,Não,Não
+162,Cuidado habitual,55,F,27.9,152.5,138.8,231.5,2,2,Sim,Sim,Não,Não
+163,Cuidado habitual,43,M,29.7,163.0,136.0,202.9,2,1,Não,Não,Sim,Não
+164,Cuidado habitual,66,M,33.5,150.1,121.4,188.7,1,0,Não,Não,Não,Não
+165,Cuidado habitual,41,M,20.0,135.2,161.4,247.6,2,4,Não,Não,Não,Não
+166,Cuidado habitual,71,M,35.2,147.1,133.7,237.5,1,1,Não,Não,Não,Não
+167,Cuidado habitual,77,M,22.6,169.5,130.1,157.6,2,2,Sim,Não,Sim,Não
+168,Cuidado habitual,58,F,23.6,127.6,154.4,166.4,2,2,Não,Não,Não,Não
+169,Cuidado habitual,66,F,34.0,135.4,139.1,201.2,2,1,Não,Não,Não,Não
+170,Cuidado habitual,67,F,27.2,138.4,114.2,226.6,2,4,Não,Não,Não,Não
+171,Cuidado habitual,51,F,32.5,157.9,132.4,151.3,1,1,Não,Não,Sim,Não
+172,Cuidado habitual,57,M,20.0,139.6,148.8,201.7,2,2,Não,Não,Não,Não
+173,Cuidado habitual,48,M,23.8,141.0,140.9,223.3,0,1,Sim,Não,Não,Não
+174,Cuidado habitual,46,M,27.6,153.1,135.8,172.5,0,4,Não,Não,Não,Não
+175,Cuidado habitual,54,F,30.4,125.6,140.6,215.6,3,3,Não,Não,Não,Não
+176,Cuidado habitual,62,M,26.8,140.8,141.0,225.5,1,1,Sim,Não,Não,Não
+177,Cuidado habitual,54,F,30.8,173.0,149.3,182.6,4,3,Não,Não,Sim,Não
+178,Cuidado habitual,53,M,30.3,147.8,135.0,181.9,2,1,Sim,Não,Não,Não
+179,Cuidado habitual,50,M,29.1,149.0,139.9,217.8,3,3,Não,Não,Não,Não
+180,Cuidado habitual,49,M,31.5,154.6,142.2,245.8,2,3,Não,Não,Não,Não
+181,Cuidado habitual,73,F,22.1,153.0,132.0,177.8,0,1,Não,Não,Não,Não
+182,Cuidado habitual,57,F,27.8,149.8,137.5,252.2,1,3,Sim,Não,Não,Não
+183,Cuidado habitual,56,F,31.1,160.1,128.5,234.8,0,3,Sim,Não,Não,Não
+184,Cuidado habitual,48,F,29.4,140.5,125.4,219.6,1,1,Não,Não,Não,Não
+185,Cuidado habitual,59,M,32.6,159.0,125.6,219.9,0,2,Não,Não,Não,Não
+186,Cuidado habitual,59,F,30.9,150.7,127.4,190.9,2,3,Não,Não,Não,Não
+187,Cuidado habitual,55,F,26.6,168.8,144.7,171.3,2,2,Não,Não,Sim,Não
+188,Cuidado habitual,68,F,28.6,139.6,168.2,195.8,2,2,Não,Não,Sim,Não
+189,Cuidado habitual,61,F,31.3,134.7,134.0,231.5,2,1,Sim,Não,Não,Não
+190,Cuidado habitual,50,M,28.5,158.5,127.5,208.3,2,1,Não,Não,Não,Não
+191,Cuidado habitual,46,F,32.4,164.8,98.1,197.8,1,2,Sim,Não,Não,Não
+192,Cuidado habitual,56,F,33.1,136.5,120.9,253.7,1,4,Sim,Não,Não,Não
+193,Cuidado habitual,64,F,28.6,128.1,137.6,206.4,0,1,Não,Não,Sim,Não
+194,Cuidado habitual,53,M,29.2,147.8,151.1,251.5,1,3,Não,Não,Não,Não
+195,Cuidado habitual,67,F,35.0,136.7,129.2,271.9,1,3,Não,Sim,Não,Não
+196,Cuidado habitual,51,M,27.9,120.4,111.6,169.8,3,3,Não,Não,Não,Não
+197,Cuidado habitual,49,M,31.6,151.8,160.0,218.1,1,2,Não,Não,Não,Não
+198,Cuidado habitual,62,M,26.1,142.8,130.5,212.7,3,3,Não,Não,Sim,Não
+199,Cuidado habitual,73,M,26.8,146.7,118.2,171.0,2,2,Não,Não,Sim,Não
+200,Cuidado habitual,49,F,32.6,134.7,121.6,237.4,2,2,Não,Não,Não,Não
+201,Cuidado habitual,62,F,28.9,139.1,125.1,200.9,2,4,Não,Não,Sim,Sim
+202,Cuidado habitual,64,F,26.8,156.0,122.6,215.7,2,4,Não,Não,Sim,Sim
+203,Cuidado habitual,53,M,22.2,137.4,131.1,209.5,4,4,Não,Não,Sim,Não
+204,Cuidado habitual,55,F,26.5,148.6,134.0,209.2,3,3,Não,Não,Não,Não
+205,Cuidado habitual,46,M,22.1,150.0,126.4,248.8,3,4,Sim,Sim,Não,Não
+206,Cuidado habitual,46,F,27.2,158.7,135.3,183.6,1,1,Sim,Não,Não,Não
+207,Cuidado habitual,69,M,30.8,176.3,136.4,166.3,0,1,Não,Não,Não,Não
+208,Cuidado habitual,59,M,25.8,161.8,125.0,170.6,2,2,Não,Não,Não,Sim
+209,Cuidado habitual,61,M,36.2,169.7,149.6,204.5,3,3,Sim,Não,Não,Não
+210,Cuidado habitual,52,M,29.9,145.1,118.1,207.5,3,4,Não,Sim,Não,Não
+211,Cuidado habitual,70,M,26.9,154.6,131.7,161.5,2,1,Sim,Não,Não,Não
+212,Cuidado habitual,59,F,32.2,140.4,134.0,179.3,1,4,Sim,Não,Não,Não
+213,Cuidado habitual,39,M,29.8,154.1,136.8,178.3,4,3,Sim,Não,Não,Não
+214,Cuidado habitual,67,F,35.3,156.6,139.7,185.5,2,2,Não,Não,Sim,Não
+215,Cuidado habitual,54,M,33.5,133.3,130.1,256.3,1,2,Sim,Não,Não,Não
+216,Cuidado habitual,53,F,34.8,156.9,129.5,185.0,2,3,Não,Não,Não,Não
+217,Cuidado habitual,43,M,27.6,155.1,164.5,262.1,3,3,Não,Não,Não,Não
+218,Cuidado habitual,69,F,22.5,154.5,142.6,186.5,4,4,Não,Não,Não,Não
+219,Cuidado habitual,55,F,26.6,154.0,117.2,236.2,3,3,Não,Não,Sim,Não
+220,Cuidado habitual,49,M,29.8,161.4,149.8,235.7,2,3,Não,Não,Sim,Não
+221,Cuidado habitual,73,F,33.2,155.9,139.6,203.4,3,1,Sim,Não,Não,Não
+222,Cuidado habitual,58,F,30.4,149.1,146.0,218.1,0,1,Sim,Não,Não,Não
+223,Cuidado habitual,47,F,26.8,135.4,117.9,191.9,3,4,Sim,Não,Não,Não
+224,Cuidado habitual,51,F,30.3,148.4,142.8,189.7,1,2,Sim,Não,Não,Não
+225,Cuidado habitual,54,M,31.9,148.4,138.4,174.6,3,2,Sim,Não,Não,Não
+226,Cuidado habitual,49,F,37.4,128.4,127.2,200.0,2,3,Sim,Não,Não,Não
+227,Cuidado habitual,59,F,32.0,149.6,130.9,223.0,3,2,Não,Não,Não,Não
+228,Cuidado habitual,47,F,33.5,130.4,149.9,235.6,1,3,Não,Não,Não,Não
+229,Cuidado habitual,63,F,33.1,151.0,130.6,192.4,2,2,Sim,Não,Não,Não
+230,Cuidado habitual,47,F,26.3,159.6,146.5,222.3,1,1,Não,Não,Não,Não
+231,Cuidado habitual,68,F,30.4,151.4,131.8,215.4,4,2,Sim,Não,Não,Não
+232,Cuidado habitual,42,F,30.7,145.0,143.7,196.5,1,4,Não,Não,Não,Não
+233,Cuidado habitual,44,F,20.8,127.4,134.3,227.6,2,4,Não,Não,Não,Não
+234,Cuidado habitual,69,M,26.3,163.0,114.4,247.6,1,3,Não,Não,Não,Não
+235,Cuidado habitual,68,F,30.2,140.4,165.6,213.2,1,2,Sim,Não,Não,Não
+236,Cuidado habitual,46,M,35.2,131.1,154.8,179.8,2,3,Não,Não,Não,Não
+237,Cuidado habitual,54,F,26.4,139.4,133.5,143.9,1,2,Não,Não,Não,Não
+238,Cuidado habitual,54,F,26.0,149.9,137.3,225.8,0,2,Sim,Não,Não,Não
+239,Cuidado habitual,56,F,29.7,164.0,113.3,240.4,3,2,Sim,Não,Não,Não
+240,Cuidado habitual,51,F,37.0,169.9,139.2,247.3,1,4,Sim,Não,Sim,Não

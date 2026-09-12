@@ -47,5 +47,23 @@
     "title": "Bem-vindo(a)!",
     "section": "",
     "text": "Bem-vindo(a)!\nEste espaço foi criado pelo Prof. Dr. Sadraque E. F. Lucena para centralizar todos os conteúdos, atividades e o cronograma da componenete curricular ESTAT0048 – Bioestatística, ofertado pelo Programa de Pós-Graduação em Ciências Farmacêuticas da Universidade Federal de Sergipe."
+  },
+  {
+    "objectID": "aulas/03-Comparacao_dois_grupos/conteudo.html",
+    "href": "aulas/03-Comparacao_dois_grupos/conteudo.html",
+    "title": "3. Comparação de dois grupos",
+    "section": "",
+    "text": "Nesta aula, vamos avaliar a existência de diferença estatisticamente significativa entre o desfecho de dois grupos. Vamos considerar a escolha do teste estatístico conforme a natureza dos dados e a estrutura dos grupos, a verificação dos principais pressupostos e a interpretação dos resultados. Serão trabalhados testes para grupos independentes e pareados, incluindo testes paramétricos e não paramétricos, além da comparação de desfechos categóricos e da interpretação das principais medidas de efeito.\nSlides:\n\n\n  \n\nSlides da aula em HTML\n\n\n\n  \n\nSlides da aula em PDF\n\n\n\nBases de dados dos exemplos:\n\nexemplo3.1.csv\nexemplo3.2.csv\nexemplo3.3.csv\nexemplo3.4.csv\nexemplo3.5.csv\nexemplo3.6.csv\nexemplo3.7.csv\n\nBases de dados dos exercícios:\n\nexercicio3.1.csv\nexercicio3.2.csv",
+    "crumbs": [
+      "Aulas",
+      "3. Comparação de dois grupos"
+    ]
+  },
+  {
+    "objectID": "aulas/04-/conteudo.html",
+    "href": "aulas/04-/conteudo.html",
+    "title": "2. Exploração, descrição e visualização de dados",
+    "section": "",
+    "text": "Nesta aula, vamos preparar, descrever e explorar os dados antes de avançar para análises inferenciais, abordando a qualidade e a organização do banco, a identificação de padrões e inconsistências, as estatísticas descritivas e as principais estratégias de visualização de dados.\nSlides:\n\n\n  \n\nSlides da aula em HTML\n\n\n\n  \n\nSlides da aula em PDF"
   }
 ]
