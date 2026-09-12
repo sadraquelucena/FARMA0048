@@ -1,0 +1,72 @@
+---
+title: "3. Comparação de dois grupos"
+format:
+  html:
+    toc: false
+    anchor-sections: false
+---
+
+Nesta aula, vamos avaliar a existência de diferença estatisticamente significativa entre o desfecho de dois grupos. Vamos considerar a escolha do teste estatístico conforme a natureza dos dados e a estrutura dos grupos, a verificação dos principais pressupostos e a interpretação dos resultados. Serão trabalhados testes para grupos independentes e pareados, incluindo testes paramétricos e não paramétricos, além da comparação de desfechos categóricos e da interpretação das principais medidas de efeito.
+
+
+
+Slides:
+
+
+```{r}
+#| echo: false
+#| eval: true
+
+# Pega o nome do arquivos html e pdf automaticamente
+html_slide <- list.files("slides", pattern = "\\.html$", full.names = FALSE)
+pdf_slide  <- list.files("slides", pattern = "\\.pdf$", full.names = FALSE)
+png_slide <- sub("\\.pdf$", ".png", pdf_slide)
+```
+
+:::: {.grid}
+
+::: {.g-col-12 .g-col-md-4}
+
+<a href="slides/`r html_slide`"
+   target="_blank"
+   class="thumb html-slide">
+<img
+  src="slides/`r png_slide`"
+  alt="Slides da aula em HTML"
+  class="img-fluid">
+</a>
+<p class="text-center">Slides da aula em HTML</p>
+
+:::
+
+::: {.g-col-12 .g-col-md-4}
+
+<a href="slides/`r pdf_slide`"
+   target="_blank"
+   class="thumb pdf-slide">
+<img
+  src="slides/`r png_slide`"
+  alt="Slides da aula em PDF"
+  class="img-fluid">
+</a>
+<p class="text-center">Slides da aula em PDF</p>
+
+:::
+
+::::
+
+Bases de dados dos exemplos:
+
+- [exemplo3.1.csv](slides/dados/exemplo3.1.csv){download="exemplo3.1.csv"}
+- [exemplo3.2.csv](slides/dados/exemplo3.2.csv){download="exemplo3.2.csv"}
+- [exemplo3.3.csv](slides/dados/exemplo3.3.csv){download="exemplo3.3.csv"}
+- [exemplo3.4.csv](slides/dados/exemplo3.4.csv){download="exemplo3.4.csv"}
+- [exemplo3.5.csv](slides/dados/exemplo3.5.csv){download="exemplo3.5.csv"}
+- [exemplo3.6.csv](slides/dados/exemplo3.6.csv){download="exemplo3.6.csv"}
+- [exemplo3.7.csv](slides/dados/exemplo3.7.csv){download="exemplo3.7.csv"}
+
+
+Bases de dados dos exercícios:
+
+- [exercicio3.1.csv](slides/dados/exercicio3.1.csv){download="exercicio3.1.csv"}
+- [exercicio3.2.csv](slides/dados/exercicio3.2.csv){download="exercicio3.2.csv"}

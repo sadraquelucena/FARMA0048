@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+<script src="04-Comparacao_de_mais_de_dois_grupos_files/libs/clipboard/clipboard.min.js"></script>
+<script src="04-Comparacao_de_mais_de_dois_grupos_files/libs/quarto-html/tabby.min.js"></script>
+<script src="04-Comparacao_de_mais_de_dois_grupos_files/libs/quarto-html/popper.min.js"></script>
+<script src="04-Comparacao_de_mais_de_dois_grupos_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="04-Comparacao_de_mais_de_dois_grupos_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="04-Comparacao_de_mais_de_dois_grupos_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="04-Comparacao_de_mais_de_dois_grupos_files/libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.38">
+
+  <meta name="author" content="FARMA0048 - Bioestatística  Programa de Pós-Graduação em Ciências Farmacêuticas (PPGCF)">
+  <title>Comparação de mais de dois grupos</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="04-Comparacao_de_mais_de_dois_grupos_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="04-Comparacao_de_mais_de_dois_grupos_files/libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="04-Comparacao_de_mais_de_dois_grupos_files/libs/revealjs/dist/theme/quarto-3763f834af527120b116a6f7de2be064.css">
+  <link href="04-Comparacao_de_mais_de_dois_grupos_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="04-Comparacao_de_mais_de_dois_grupos_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="04-Comparacao_de_mais_de_dois_grupos_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="04-Comparacao_de_mais_de_dois_grupos_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Comparação de mais de dois grupos</h1>
+  <p class="subtitle">Prof.&nbsp;Dr.&nbsp;Sadraque E. F. Lucena<br> <a href="http://sadraquelucena.github.io/FARMA0048" style="font-size:.8em;">http://sadraquelucena.github.io/FARMA0048</a><br></p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+<p><em>FARMA0048 - Bioestatística</em><br> <em>Programa de Pós-Graduação em Ciências Farmacêuticas (PPGCF)</em></p> 
+</div>
+</div>
+</div>
+
+</section>
+<section id="o-que-determina-o-método" class="slide level2">
+<h2>O que determina o método?</h2>
+<p>Nesta aula, vamos assumir que o desfecho é <strong>quantitativo</strong>.</p>
+<p>A escolha do método depende principalmente da estrutura do estudo:</p>
+<ul>
+<li><strong>Grupos independentes</strong></li>
+<li><strong>Medidas repetidas no mesmo indivíduo</strong></li>
+<li><strong>Um ou mais fatores</strong></li>
+<li><strong>Pressupostos do modelo</strong></li>
+</ul>
+</section>
+<section id="o-que-veremos" class="slide level2">
+<h2>O que veremos</h2>
+<h4 id="mais-de-dois-grupos-independentes">Mais de dois grupos independentes</h4>
+<div class="columns">
+<div class="column" style="width:20%;">
+<ul>
+<li>ANOVA</li>
+<li>Welch</li>
+</ul>
+</div><div class="column" style="width:80%;">
+<ul>
+<li>Kruskal-Wallis</li>
+<li>Comparações post hoc</li>
+</ul>
+</div></div>
+<h4 id="mais-de-duas-medidas-no-mesmo-indivíduo">Mais de duas medidas no mesmo indivíduo</h4>
+<ul>
+<li>ANOVA de medidas repetidas</li>
+<li>Friedman</li>
+</ul>
+<h4 id="mais-de-um-fator">Mais de um fator</h4>
+<ul>
+<li>ANOVA de duas vias<br>
+</li>
+<li>Interação<br>
+</li>
+<li>Efeitos simples</li>
+</ul>
+</section>
+<section>
+<section id="mais-de-dois-grupos-independentes-1" class="title-slide slide level1 center">
+<h1>Mais de dois grupos independentes</h1>
+
+</section>
+<section id="anova-de-uma-via" class="slide level2">
+<h2>ANOVA de uma via</h2>
+<h4 id="exemplo">Exemplo</h4>
+<p>Um estudo avaliou a concentração plasmática de um fármaco após a administração de três formulações:</p>
+<ul>
+<li>Formulação A</li>
+<li>Formulação B</li>
+<li>Formulação C</li>
+</ul>
+<p>Cada participante recebeu <strong>uma única formulação</strong>.</p>
+<ul>
+<li><strong>Pergunta:</strong> A concentração plasmática média difere entre as três formulações?</li>
+</ul>
+</section>
+<section id="anova" class="slide level2">
+<h2>ANOVA</h2>
+<ul>
+<li>Compara a média de um desfecho quantitativo entre três ou mais grupos <strong>independentes</strong></li>
+<li>Testa se pelo menos a média do desfecho de um grupo difere das demais</li>
+<li>O modelo é válido se há:
+<ul>
+<li>Distribuição aproximadamente normal dos resíduos (teste de Shapiro-Wilk)
+<ul>
+<li>Se p-valor &gt; 0,05: ok</li>
+<li>Se p-valor &lt; 0,05: usar teste de Kruskal-Wallis</li>
+</ul></li>
+<li>Homogeneidade das variâncias (teste de Levene)
+<ul>
+<li>Se p-valor &gt; 0,05: ok (variâncias homogêneas)</li>
+<li>Se p-valor &lt; 0,05: mudar para ANOVA de Welch</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="anova-1" class="slide level2">
+<h2>ANOVA</h2>
+<ul>
+<li>A ANOVA é um <strong>teste global</strong>: não identifica quais grupos diferem
+<ul>
+<li>Se p-valor &lt; 0,05: realize comparações múltiplas (<strong>Tukey HSD</strong>)</li>
+<li>Se p-valor &gt; 0,05: não há evidência suficiente de diferença entre as médias</li>
+</ul></li>
+<li>Informe:
+<ul>
+<li>Média ± desvio padrão de cada grupo</li>
+<li>Estatística <span class="math inline">\(F\)</span>, graus de liberdade e <em>p</em>-valor</li>
+<li>Tamanho do efeito: <span class="math inline">\(\eta^2\)</span> ou <span class="math inline">\(\omega^2\)</span> (conservador)
+<ul>
+<li>Indica a magnitude da associação entre o fator e a variabilidade do desfecho</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="teste-de-tukey-hsd-post-hoc" class="slide level2">
+<h2>Teste de Tukey HSD (post-hoc)</h2>
+<ul>
+<li><p>O Tukey HSD realiza comparações entre todos os pares de médias</p></li>
+<li><p>Para cada comparação, apresenta:</p>
+<ul>
+<li><strong>Diferença entre médias</strong></li>
+<li><strong>Intervalo de confiança de 95%</strong></li>
+<li><strong><em>p</em>-valor ajustado</strong></li>
+</ul></li>
+<li><p>Se <span class="math inline">\(p\)</span>-valor &lt; 0,05: há diferença entre as médias do par avaliado</p></li>
+</ul>
+</section>
+<section id="exemplo-4.1" class="slide level2">
+<h2>Exemplo 4.1</h2>
+<p>Em um estudo publicado na Revista Brasileira de Ciências Farmacêuticas, pesquisadores avaliaram comprimidos de ciprofloxacino 250 mg de diferentes produtos comercializados no Brasil e compararam estatisticamente a eficiência de dissolução. Imagine que um laboratório farmacêutico queira comparar quatro formulações de comprimidos de ciprofloxacino 250 mg (Referência, Genérico A, Genérico B e Genérico C). Foram avaliados 10 comprimidos de cada formulação. Para cada comprimido, foi determinada a eficiência de dissolução (%).</p>
+<ul>
+<li><p><strong>Pergunta de pesquisa:</strong> a eficiência média de dissolução difere entre as formulações?</p></li>
+<li><p>Dados: <em>exemplo4.1.csv</em></p></li>
+</ul>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+<p align="center">
+<img src="imagens/anova_jamovi3.png" width="800">
+</p>
+</section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<p>Para obter o tamanho do efeito:</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p align="center">
+<img src="imagens/anova_jamovi1.png" width="600">
+</p>
+</div><div class="column" style="width:50%;">
+<p align="center">
+<img src="imagens/anova_jamovi2.png" width="600">
+</p>
+</div></div>
+</section>
+<section id="exemplo-4.1-1" class="slide level2">
+<h2>Exemplo 4.1</h2>
+<h4 id="resultados">Resultados</h4>
+<p>A eficiência de dissolução diferiu entre as formulações, <span class="math inline">\(F(3,36)=69{,}7\)</span>, <span class="math inline">\(p&lt;0{,}001\)</span>, com grande magnitude de efeito (<span class="math inline">\(\omega^2=0{,}837\)</span>).</p>
+<p>O teste de Tukey HSD mostrou diferença entre:</p>
+<ul>
+<li>Genérico A e Genérico B (<span class="math inline">\(p&lt;0{,}001\)</span>);</li>
+<li>Genérico A e Genérico C (<span class="math inline">\(p&lt;0{,}001\)</span>);</li>
+<li>Genérico A e Referência (<span class="math inline">\(p=0{,}001\)</span>);</li>
+<li>Genérico B e Genérico C (<span class="math inline">\(p&lt;0{,}001\)</span>);</li>
+<li>Genérico B e Referência (<span class="math inline">\(p&lt;0{,}001\)</span>).</li>
+</ul>
+<p>Não foi observada diferença significativa entre o Genérico C e a Referência (<span class="math inline">\(p=0{,}223\)</span>).</p>
+</section>
+<section id="anova-de-welch" class="slide level2">
+<h2>ANOVA de Welch</h2>
+<ul>
+<li>É uma alternativa à ANOVA tradicional quando há <strong>heterogeneidade das variâncias</strong></li>
+<li>Não pressupõe que as variâncias dos grupos sejam iguais</li>
+<li>É especialmente útil quando os grupos apresentam <strong>tamanhos amostrais diferentes</strong></li>
+<li>Assim como a ANOVA tradicional, é um <strong>teste global</strong>
+<ul>
+<li>Se <span class="math inline">\(p\)</span>-valor &lt; 0,05, realize comparações múltiplas (<strong>Games-Howell</strong>)</li>
+</ul></li>
+<li>Informe:
+<ul>
+<li>Média ± desvio padrão de cada grupo</li>
+<li>Estatística de Welch, graus de liberdade e <em>p</em>-valor</li>
+<li>Tamanho do efeito</li>
+</ul></li>
+</ul>
+</section>
+<section id="exemplo-4.2" class="slide level2">
+<h2>Exemplo 4.2</h2>
+<p>Imagine que um laboratório farmacêutico queira comparar o tempo de desintegração de cinco formulações de comprimidos orodispersíveis:</p>
+<div class="columns">
+<div class="column" style="width:20%;">
+<ul>
+<li><strong>D1:</strong> 1% EMCS</li>
+<li><strong>D2:</strong> 5% EMCS</li>
+</ul>
+</div><div class="column" style="width:20%;">
+<ul>
+<li><strong>D3:</strong> 1% SSP</li>
+<li><strong>D4:</strong> 5% SSP</li>
+</ul>
+</div><div class="column" style="width:60%;">
+<ul>
+<li><strong>D5:</strong> 3% EMCS</li>
+</ul>
+</div></div>
+<p>Foram avaliados 8 comprimidos de cada formulação. Para cada comprimido, foi determinado o <strong>tempo de desintegração</strong>, em segundos.</p>
+<ul>
+<li><p><strong>Pergunta de pesquisa:</strong> o tempo médio de desintegração difere entre as formulações?</p></li>
+<li><p>Dados: <em>exemplo4.2.csv</em></p></li>
+</ul>
+</section>
+<section id="section-2" class="slide level2">
+<h2></h2>
+<p align="center">
+<img src="imagens/anova_welch_jamovi.png" width="800">
+</p>
+</section>
+<section id="exemplo-4.2-1" class="slide level2">
+<h2>Exemplo 4.2</h2>
+<h4 id="resultados-1">Resultados</h4>
+<p>O tempo de desintegração diferiu entre as formulações, <span class="math inline">\(F(3,18{,}4)=11{,}1\)</span>, <span class="math inline">\(p&lt;0{,}001\)</span>.</p>
+<p>O teste de Games-Howell mostrou diferença entre:</p>
+<ul>
+<li>Formulação A e Formulação B (diferença média = <span class="math inline">\(-3{,}81\)</span> s; <span class="math inline">\(p=0{,}003\)</span>);</li>
+<li>Formulação A e Formulação C (diferença média = <span class="math inline">\(-9{,}10\)</span> s; <span class="math inline">\(p=0{,}007\)</span>);</li>
+<li>Formulação A e Formulação D (diferença média = <span class="math inline">\(-10{,}33\)</span> s; <span class="math inline">\(p=0{,}039\)</span>).</li>
+</ul>
+<p>Não foram observadas diferenças significativas entre:</p>
+<ul>
+<li>Formulação B e Formulação C (<span class="math inline">\(p=0{,}130\)</span>);</li>
+<li>Formulação B e Formulação D (<span class="math inline">\(p=0{,}241\)</span>);</li>
+<li>Formulação C e Formulação D (<span class="math inline">\(p=0{,}987\)</span>).</li>
+</ul>
+</section>
+<section id="teste-de-kruskal-wallis" class="slide level2">
+<h2>Teste de Kruskal-Wallis</h2>
+<ul>
+<li>Compara a <strong>distribuição de um desfecho quantitativo ou ordinal entre três ou mais grupos independentes</strong></li>
+<li>Não pressupõe distribuição normal do desfecho</li>
+<li>É um <strong>teste global</strong>
+<ul>
+<li>Se significativo (em geral, p-valor &lt; 0,05), realize comparações múltiplas (<strong>Dunn</strong>)</li>
+<li>Ajuste os <em>p</em>-valores para múltiplas comparações (<strong>Holm</strong>)</li>
+</ul></li>
+<li>Informe:
+<ul>
+<li>Mediana e intervalo interquartil de cada grupo</li>
+<li>Estatística <span class="math inline">\(H\)</span>, graus de liberdade e <em>p</em>-valor</li>
+<li>Tamanho do efeito, quando disponível</li>
+</ul></li>
+</ul>
+</section>
+<section id="exemplo-4.3" class="slide level2">
+<h2>Exemplo 4.3</h2>
+<p>Imagine que um laboratório farmacêutico queira comparar a quantidade de ácido fólico liberada, após determinado período por três sistemas num ensaio <em>in vitro</em>:</p>
+<ul>
+<li><strong>Ácido fólico cristalino</strong></li>
+<li><strong>ZnAl-LDH-ácido fólico</strong></li>
+<li><strong>MgAl-LDH-ácido fólico</strong></li>
+</ul>
+<p>Foram realizadas 12 determinações para cada sistema. Para cada amostra, foi determinado o <strong>percentual de ácido fólico liberado</strong>.</p>
+<ul>
+<li><p><strong>Pergunta de pesquisa:</strong> a distribuição do percentual de ácido fólico liberado difere entre os sistemas?</p></li>
+<li><p>Dados: <em>exemplo4.3.csv</em></p></li>
+</ul>
+</section>
+<section id="section-3" class="slide level2">
+<h2></h2>
+<p align="center">
+<img src="imagens/kruskal_jamovi.png" width="1000">
+</p>
+</section>
+<section id="exemplo-4.3-1" class="slide level2">
+<h2>Exemplo 4.3</h2>
+<h4 id="resultados-2">Resultados</h4>
+<p>A distribuição do percentual de ácido fólico liberado diferiu entre os sistemas, <span class="math inline">\(\chi^2(2)=19{,}44\)</span>, <span class="math inline">\(p&lt;0{,}001\)</span>, com grande magnitude de efeito (<span class="math inline">\(\varepsilon^2=0{,}56\)</span>).</p>
+<p>As comparações múltiplas pelo teste de Dunn, com ajuste de Bonferroni, mostraram diferença entre:</p>
+<ul>
+<li><p>ZnAl-LDH-ácido fólico e MgAl-LDH-ácido fólico (<span class="math inline">\(p=0{,}002\)</span>);</p></li>
+<li><p>ZnAl-LDH-ácido fólico e ácido fólico cristalino (<span class="math inline">\(p&lt;0{,}001\)</span>).</p></li>
+</ul>
+<p>Não foi observada diferença significativa entre MgAl-LDH-ácido fólico e ácido fólico cristalino (<span class="math inline">\(p=1{,}000\)</span>).</p>
+</section></section>
+<section>
+<section id="mais-de-duas-medidas-no-mesmo-indivíduo-1" class="title-slide slide level1 center">
+<h1>Mais de duas medidas no mesmo indivíduo</h1>
+
+</section>
+<section id="anova-de-medidas-repetidas" class="slide level2">
+<h2>ANOVA de medidas repetidas</h2>
+<h4 id="exemplo-1">Exemplo</h4>
+<p>Um estudo avaliou a concentração plasmática de um fármaco em três momentos após a administração:</p>
+<ul>
+<li>Antes do tratamento</li>
+<li>30 minutos</li>
+<li>60 minutos</li>
+</ul>
+<p>Cada participante foi avaliado <strong>nos três momentos</strong>.</p>
+<ul>
+<li><strong>Pergunta:</strong> A concentração plasmática média difere entre os três momentos?</li>
+</ul>
+</section>
+<section id="anova-de-medidas-repetidas-1" class="slide level2">
+<h2>ANOVA de medidas repetidas</h2>
+<ul>
+<li><p>Compara a média de um desfecho quantitativo em três ou mais <strong>momentos ou condições no mesmo indivíduo</strong></p></li>
+<li><p>Testa se pelo menos a média do desfecho de um momento difere das demais</p></li>
+<li><p>O modelo é válido se há:</p>
+<ul>
+<li><p>Distribuição aproximadamente normal dos resíduos</p></li>
+<li><p><strong>Esfericidade</strong> das medidas repetidas (teste de <strong>Mauchly</strong>)</p>
+<ul>
+<li>Se <span class="math inline">\(p\)</span>-valor &gt; 0,05: ok</li>
+<li>Se <span class="math inline">\(p\)</span>-valor &lt; 0,05: aplicar correção de <strong>Greenhouse–Geisser</strong></li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="anova-de-medidas-repetidas-2" class="slide level2">
+<h2>ANOVA de medidas repetidas</h2>
+<ul>
+<li><p>A ANOVA é um <strong>teste global</strong>: não identifica quais momentos diferem</p>
+<ul>
+<li><p>Se <span class="math inline">\(p\)</span>-valor &lt; 0,05: realize comparações múltiplas <strong>entre os momentos</strong></p></li>
+<li><p>Se <span class="math inline">\(p\)</span>-valor &gt; 0,05: não há evidência suficiente de diferença entre as médias</p></li>
+</ul></li>
+<li><p>Informe:</p>
+<ul>
+<li><p>Média ± desvio padrão de cada momento</p></li>
+<li><p>Estatística <span class="math inline">\(F\)</span>, graus de liberdade e <em>p</em>-valor</p></li>
+<li><p>Tamanho do efeito: <span class="math inline">\(\eta^2_p\)</span> (eta quadrado parcial)</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="comparações-múltiplas" class="slide level2">
+<h2>Comparações múltiplas</h2>
+<ul>
+<li><p>Para cada comparação, apresentam:</p>
+<ul>
+<li>Diferença entre médias</li>
+<li>Intervalo de confiança de 95%</li>
+<li><em>p</em>-valor ajustado</li>
+</ul></li>
+<li><p>O ajuste controla o aumento do erro decorrente das <strong>múltiplas comparações</strong></p></li>
+<li><p>No jamovi, pode-se utilizar o ajuste de <strong>Holm</strong> (preferencial) ou <strong>Bonferroni</strong></p></li>
+<li><p>Se <span class="math inline">\(p\)</span>-valor &lt; 0,05: há diferença entre as médias dos momentos comparados</p></li>
+</ul>
+</section>
+<section id="exemplo-4.4" class="slide level2">
+<h2>Exemplo 4.4</h2>
+<p>Um estudo avaliou a <strong>concentração plasmática de um fármaco</strong> em 15 participantes após a administração de uma dose oral. A concentração foi medida em três momentos:</p>
+<ul>
+<li>Antes da administração</li>
+<li>30 minutos após a administração</li>
+<li>60 minutos após a administração</li>
+</ul>
+<p>Cada participante foi avaliado <strong>nos três momentos</strong>.</p>
+<ul>
+<li><p><strong>Pergunta:</strong> A concentração plasmática média difere entre os três momentos?</p></li>
+<li><p>Dados: <em>exemplo4.4.csv</em></p></li>
+</ul>
+</section>
+<section id="section-4" class="slide level2">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:33%;">
+<p align="center">
+<img src="imagens/anova_medidas_repetidas_jamovi1.png" width="600">
+</p>
+</div><div class="column" style="width:33%;">
+<p align="center">
+<img src="imagens/anova_medidas_repetidas_jamovi2.png" width="600">
+</p>
+</div><div class="column" style="width:33%;">
+<p align="center">
+<img src="imagens/anova_medidas_repetidas_jamovi3.png" width="600">
+</p>
+</div></div>
+</section>
+<section id="exemplo-4.4-1" class="slide level2">
+<h2>Exemplo 4.4</h2>
+<h4 id="resultados-3">Resultados</h4>
+<p>O teste de Mauchly indicou violação da esfericidade (<span class="math inline">\(W=0{,}14\)</span>, <span class="math inline">\(p&lt;0{,}001\)</span>). Portanto, foi aplicada a correção de <strong>Greenhouse–Geisser</strong> (<span class="math inline">\(\varepsilon=0{,}54\)</span>).</p>
+<p>A concentração plasmática diferiu entre os momentos, <span class="math inline">\(F(1{,}08,15{,}08)=4312{,}3\)</span>, <span class="math inline">\(p&lt;0{,}001\)</span>, com grande magnitude de efeito (<span class="math inline">\(\eta_p^2=0{,}997\)</span>).</p>
+<p>As comparações múltiplas, com ajuste de Holm, mostraram diferença entre:</p>
+<ul>
+<li>Antes e 30 minutos (<span class="math inline">\(p&lt;0{,}001\)</span>);</li>
+<li>Antes e 60 minutos (<span class="math inline">\(p&lt;0{,}001\)</span>);</li>
+<li>30 e 60 minutos (<span class="math inline">\(p&lt;0{,}001\)</span>).</li>
+</ul>
+</section>
+<section id="teste-de-friedman" class="slide level2">
+<h2>Teste de Friedman</h2>
+<ul>
+<li><p>Compara a <strong>distribuição de um desfecho quantitativo ou ordinal entre três ou mais medidas dependentes</strong></p></li>
+<li><p>Não pressupõe distribuição normal do desfecho</p></li>
+<li><p>É um <strong>teste global</strong></p>
+<ul>
+<li>Se significativo (em geral, <em>p</em>-valor &lt; 0,05), realize comparações múltiplas (<strong>Durbin–Conover</strong>)</li>
+</ul></li>
+<li><p>Informe:</p>
+<ul>
+<li><p>Mediana e intervalo interquartil de cada momento/condição</p></li>
+<li><p>Estatística <span class="math inline">\(\chi^2\)</span>, graus de liberdade e <em>p</em>-valor</p></li>
+<li><p>Tamanho do efeito: <strong><span class="math inline">\(\varepsilon^2\)</span></strong></p></li>
+</ul></li>
+</ul>
+</section>
+<section id="exemplo-4.5" class="slide level2">
+<h2>Exemplo 4.5</h2>
+<p>Um estudo avaliou a <strong>intensidade de náusea</strong> em 15 pacientes durante um tratamento farmacológico. A intensidade dos sintomas foi registrada em uma escala de 0 a 10 em três momentos:</p>
+<ul>
+<li>Antes do tratamento</li>
+<li>7 dias</li>
+<li>14 dias</li>
+</ul>
+<p>Cada paciente foi avaliado <strong>nos três momentos</strong>.</p>
+<ul>
+<li><p><strong>Pergunta:</strong> A distribuição da intensidade da náusea difere entre os três momentos?</p></li>
+<li><p>Dados: <em>exemplo4.5.csv</em></p></li>
+</ul>
+</section>
+<section id="section-5" class="slide level2">
+<h2></h2>
+<p align="center">
+<img src="imagens/friedman_jamovi.png" width="900">
+</p>
+</section>
+<section id="exemplo-4.5-1" class="slide level2">
+<h2>Exemplo 4.5</h2>
+<h4 id="resultados-4">Resultados</h4>
+<p>A distribuição da intensidade da náusea diferiu entre os momentos, <span class="math inline">\(\chi^2(2)=30{,}0\)</span>, <span class="math inline">\(p&lt;0{,}001\)</span>.</p>
+<p>As comparações múltiplas pelo teste de <strong>Durbin–Conover</strong>, com ajuste de Holm, mostraram diferença entre:</p>
+<ul>
+<li>Antes e 7 dias (<span class="math inline">\(p&lt;0{,}001\)</span>);</li>
+<li>Antes e 14 dias (<span class="math inline">\(p&lt;0{,}001\)</span>);</li>
+<li>7 e 14 dias (<span class="math inline">\(p&lt;0{,}001\)</span>).</li>
+</ul>
+<p>A intensidade da náusea apresentou redução progressiva ao longo do tratamento.</p>
+</section></section>
+<section id="fim" class="title-slide slide level1 center">
+<h1>Fim</h1>
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="imagens/ufs_principal_positiva.png" class="slide-logo"></p>
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="04-Comparacao_de_mais_de_dois_grupos_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="04-Comparacao_de_mais_de_dois_grupos_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="04-Comparacao_de_mais_de_dois_grupos_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="04-Comparacao_de_mais_de_dois_grupos_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="04-Comparacao_de_mais_de_dois_grupos_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="04-Comparacao_de_mais_de_dois_grupos_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="04-Comparacao_de_mais_de_dois_grupos_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="04-Comparacao_de_mais_de_dois_grupos_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="04-Comparacao_de_mais_de_dois_grupos_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="04-Comparacao_de_mais_de_dois_grupos_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'fade',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'fast',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1600,
+
+        height: 900,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        // Bounds for smallest/largest possible scale to apply to content
+        minScale: 0.2,
+
+        maxScale: 2,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copiada");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copiada");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

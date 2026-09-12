@@ -65,5 +65,12 @@
     "title": "2. Exploração, descrição e visualização de dados",
     "section": "",
     "text": "Nesta aula, vamos preparar, descrever e explorar os dados antes de avançar para análises inferenciais, abordando a qualidade e a organização do banco, a identificação de padrões e inconsistências, as estatísticas descritivas e as principais estratégias de visualização de dados.\nSlides:\n\n\n  \n\nSlides da aula em HTML\n\n\n\n  \n\nSlides da aula em PDF"
+  },
+  {
+    "objectID": "aulas/04-Comparacao_de_mais_de_dois_grupos/conteudo.html",
+    "href": "aulas/04-Comparacao_de_mais_de_dois_grupos/conteudo.html",
+    "title": "4. Comparação de mais de dois grupos",
+    "section": "",
+    "text": "Nesta aula, são apresentados os principais métodos estatísticos para comparar mais de dois grupos ou medidas no mesmo indivíduo. São abordadas a ANOVA, ANOVA de Welch e Kruskal-Wallis para grupos independentes, além da ANOVA de medidas repetidas e do teste de Friedman para medidas dependentes, incluindo seus pressupostos, comparações múltiplas, tamanhos de efeito e interpretação dos resultados.\nSlides:\n\n\n  \n\nSlides da aula em HTML\n\n\n\n  \n\nSlides da aula em PDF\n\n\n\nBases de dados dos exemplos:\n\nexemplo4.1.csv\nexemplo4.2.csv\nexemplo4.3.csv\nexemplo4.4.csv\nexemplo4.5.csv\n\nBases de dados dos exercícios:\n\nexercicio4.1.csv\nexercicio4.2.csv"
   }
 ]

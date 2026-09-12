@@ -1,0 +1,71 @@
+---
+title: "4. Comparação de mais de dois grupos"
+format:
+  html:
+    toc: false
+    anchor-sections: false
+---
+
+Nesta aula, são apresentados os principais métodos estatísticos para comparar mais de dois grupos ou medidas no mesmo indivíduo. São abordadas a ANOVA, ANOVA de Welch e Kruskal-Wallis para grupos independentes, além da ANOVA de medidas repetidas e do teste de Friedman para medidas dependentes, incluindo seus pressupostos, comparações múltiplas, tamanhos de efeito e interpretação dos resultados.
+
+
+
+Slides:
+
+
+```{r}
+#| echo: false
+#| eval: true
+
+# Pega o nome do arquivos html e pdf automaticamente
+html_slide <- list.files("slides", pattern = "\\.html$", full.names = FALSE)
+pdf_slide  <- list.files("slides", pattern = "\\.pdf$", full.names = FALSE)
+png_slide <- sub("\\.pdf$", ".png", pdf_slide)
+```
+
+:::: {.grid}
+
+::: {.g-col-12 .g-col-md-4}
+
+<a href="slides/`r html_slide`"
+   target="_blank"
+   class="thumb html-slide">
+<img
+  src="slides/`r png_slide`"
+  alt="Slides da aula em HTML"
+  class="img-fluid">
+</a>
+<p class="text-center">Slides da aula em HTML</p>
+
+:::
+
+::: {.g-col-12 .g-col-md-4}
+
+<a href="slides/`r pdf_slide`"
+   target="_blank"
+   class="thumb pdf-slide">
+<img
+  src="slides/`r png_slide`"
+  alt="Slides da aula em PDF"
+  class="img-fluid">
+</a>
+<p class="text-center">Slides da aula em PDF</p>
+
+:::
+
+::::
+
+Bases de dados dos exemplos:
+
+- [exemplo4.1.csv](slides/dados/exemplo4.1.csv){download="exemplo4.1.csv"}
+- [exemplo4.2.csv](slides/dados/exemplo4.2.csv){download="exemplo4.2.csv"}
+- [exemplo4.3.csv](slides/dados/exemplo4.3.csv){download="exemplo4.3.csv"}
+- [exemplo4.4.csv](slides/dados/exemplo4.4.csv){download="exemplo4.4.csv"}
+- [exemplo4.5.csv](slides/dados/exemplo4.5.csv){download="exemplo4.5.csv"}
+
+
+
+Bases de dados dos exercícios:
+
+- [exercicio4.1.csv](slides/dados/exercicio4.1.csv){download="exercicio4.1.csv"}
+- [exercicio4.2.csv](slides/dados/exercicio4.2.csv){download="exercicio4.2.csv"}
