@@ -46,7 +46,7 @@
     "href": "aulas/04-Comparacao_de_mais_de_dois_grupos/conteudo.html",
     "title": "4. Comparação de mais de dois grupos",
     "section": "",
-    "text": "Nesta aula, são apresentados os principais métodos estatísticos para comparar mais de dois grupos ou medidas no mesmo indivíduo. São abordadas a ANOVA, ANOVA de Welch e Kruskal-Wallis para grupos independentes, além da ANOVA de medidas repetidas e do teste de Friedman para medidas dependentes, incluindo seus pressupostos, comparações múltiplas, tamanhos de efeito e interpretação dos resultados.\nSlides:\n\n\n  \n\nSlides da aula em HTML\n\n\n\n  \n\nSlides da aula em PDF\n\n\n\nBases de dados dos exemplos:\n\nexemplo4.1.csv\nexemplo4.2.csv\nexemplo4.3.csv\nexemplo4.4.csv\nexemplo4.5.csv\n\nBases de dados dos exercícios:\n\nexercicio4.1.csv\nexercicio4.2.csv",
+    "text": "Nesta aula, são apresentados os principais métodos estatísticos para comparar mais de dois grupos ou medidas no mesmo indivíduo. São abordadas a ANOVA, ANOVA de Welch e Kruskal-Wallis para grupos independentes, além da ANOVA de medidas repetidas e do teste de Friedman para medidas dependentes, incluindo seus pressupostos, comparações múltiplas, tamanhos de efeito e interpretação dos resultados.\nSlides:\n\n\n  \n\nSlides da aula em HTML\n\n\n\n  \n\nSlides da aula em PDF\n\n\n\nBases de dados dos exemplos:\n\nexemplo4.1.csv\nexemplo4.2.csv\nexemplo4.3.csv\nexemplo4.4.csv\nexemplo4.5.csv\nexemplo4.6.csv\n\nBases de dados dos exercícios:\n\nexercicio4.1.csv\nexercicio4.2.csv\nexercicio4.3.csv\nexercicio4.4.csv\nexercicio4.5.csv\nexercicio4.6.csv",
     "crumbs": [
       "Aulas",
       "4. Comparação de mais de dois grupos"

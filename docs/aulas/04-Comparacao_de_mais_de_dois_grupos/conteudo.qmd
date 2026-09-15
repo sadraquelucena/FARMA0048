@@ -62,6 +62,7 @@ Bases de dados dos exemplos:
 - [exemplo4.3.csv](slides/dados/exemplo4.3.csv){download="exemplo4.3.csv"}
 - [exemplo4.4.csv](slides/dados/exemplo4.4.csv){download="exemplo4.4.csv"}
 - [exemplo4.5.csv](slides/dados/exemplo4.5.csv){download="exemplo4.5.csv"}
+- [exemplo4.6.csv](slides/dados/exemplo4.6.csv){download="exemplo4.6.csv"}
 
 
 
@@ -69,3 +70,7 @@ Bases de dados dos exercícios:
 
 - [exercicio4.1.csv](slides/dados/exercicio4.1.csv){download="exercicio4.1.csv"}
 - [exercicio4.2.csv](slides/dados/exercicio4.2.csv){download="exercicio4.2.csv"}
+- [exercicio4.3.csv](slides/dados/exercicio4.3.csv){download="exercicio4.3.csv"}
+- [exercicio4.4.csv](slides/dados/exercicio4.4.csv){download="exercicio4.4.csv"}
+- [exercicio4.5.csv](slides/dados/exercicio4.5.csv){download="exercicio4.5.csv"}
+- [exercicio4.6.csv](slides/dados/exercicio4.6.csv){download="exercicio4.6.csv"}

@@ -535,5 +535,245 @@ A intensidade da náusea apresentou redução progressiva ao longo do tratamento
 
 
 
+# Mais de um fator
+
+
+
+## ANOVA de duas vias
+
+- Compara a média de um desfecho quantitativo entre grupos formados pela combinação de **dois fatores independentes**
+
+- Permite avaliar:
+  - **Efeitos principais:** efeito isolado de cada fator
+  - **Interação:** se o efeito de um fator depende do nível do outro
+
+- O modelo é válido se há:
+  - Distribuição aproximadamente normal dos resíduos (Shapiro-Wilk)
+  - Homogeneidade das variâncias entre os grupos (Levene)
+
+
+
+
+## O que fazer ao violar os pressupostos?
+
+#### Violação da Normalidade
+- **Se leve/moderada e $n$ razoável:** A ANOVA ainda é confiável (robustez do modelo).
+- **Se severa:** Aplique **transformação de dados** (ex: $\log(X)$, $\sqrt{X}$) ou métodos de permutação/bootstrapping.
+
+#### Violação da Homogeneidade (Levene $p < 0{,}05$)
+- **Se o experimento for balanceado $n$ igual nos grupos):** A ANOVA é razoavelmente robusta.
+- **Se os $n$ forem desiguais ou a diferença de variância for alta:**
+  - Utilize **Erros-Padrão Robustos a Heterocedasticidade** (correção HC3).
+  - Aplique transformação logarítmica para estabilizar as variâncias.
+
+
+
+
+## ANOVA de duas vias
+
+- A interpretação depende do termo de **interação**:
+
+  - **Se a interação for significativa ($p < 0{,}05$):**
+    - O efeito de um fator muda conforme o outro
+    - Analise os **efeitos simples** ou o teste *post-hoc* de **Tukey** no termo combinado
+
+  - **Se a interação NÃO for significativa ($p > 0{,}05$):**
+    - Os fatores atuam de forma independente
+    - Interprete os **efeitos principais** separadamente
+
+- Informe:
+  - Média ± desvio padrão de cada combinação
+  - Estatística $F$, graus de liberdade e *p*-valor (dos efeitos principais e da interação)
+  - Tamanho do efeito: $\eta_p^2$ (eta quadrado parcial)
+
+
+
+
+## Conceito de Interação
+
+- Ocorre **interação** quando o efeito de um fator sobre o desfecho se modifica dependendo do nível em que o outro fator se encontra.
+
+::::{.columns}
+:::{.column width="50%"}
+#### Sem Interação
+*(Efeitos aditivos / Linhas paralelas)*
+- O comportamento do Fator A é o mesmo em todos os níveis do Fator B.
+:::
+
+:::{.column width="50%"}
+#### Com Interação
+*(Efeitos não aditivos / Linhas se cruzam)*
+- O efeito do Fator A muda significativamente conforme o nível do Fator B.
+:::
+::::
+
+- **Regra de Decisão:** Se a interação for estatisticamente significativa ($p < 0{,}05$), os efeitos principais não devem ser interpretados isoladamente. Deve-se realizar a análise dos **efeitos simples**.
+
+
+
+
+## Exemplo 4.6
+
+Um laboratório avaliou a **taxa de permeabilidade** (\(10^{-6}\text{ cm/s}\)) de um insumo farmacêutico ativo utilizando duas variáveis experimentais:
+
+- **Fator 1 (Formulação):** Com Promotor de Absorção vs. Controle
+- **Fator 2 (Segmento Intestinal):** Duodeno vs. Íleo
+
+Foram utilizadas 8 amostras para cada combinação dos fatores (\(2 \times 2 = 4\) grupos; \(n = 32\)).
+
+- **Perguntas de pesquisa:**
+  1. Existe interação entre a Formulação e o Segmento Intestinal?
+  2. A permeabilidade difere entre as formulações?
+  3. A permeabilidade difere entre os segmentos intestinais?
+
+- Dados: *exemplo4.6.csv*
+
+
+
+
+##
+
+::::{.columns}
+:::{.column width="50%"}
+<p align="center">
+<img src="imagens/anova_2fatores_jamovi1.png" width="600">
+</p>
+
+:::
+
+:::{.column width="50%"}
+
+<p align="center">
+<img src="imagens/anova_2fatores_jamovi2.png" width="600">
+</p>
+
+:::
+
+::::
+
+
+
+
+## Exemplo 4.6
+
+#### Resultados
+
+- Os pressupostos de normalidade ($p = 0{,}920$) e homogeneidade de variâncias ($p = 0{,}502$) foram atendidos.
+
+- Houve **interação significativa** entre Formulação e Segmento Intestinal sobre a permeabilidade, $F(1, 28) = 29{,}5$, $p < 0{,}001$, $\eta_p^2 = 0{,}513$.
+
+O teste *post-hoc* de Tukey revelou que:
+
+- No **Duodeno**, a formulação *Com Promotor* aumentou significativamente a permeabilidade comparada ao *Controle* (diferença média = $3{,}99$; $p < 0{,}001$);
+- No **Íleo**, a formulação *Com Promotor* **não** diferiu do *Controle* (diferença média = $0{,}09$; $p = 0{,}998$);
+- No grupo *Controle*, não houve diferença entre *Duodeno* e *Íleo* ($p = 0{,}591$).
+
+- **Conclusão:** O efeito do promotor de absorção depende da região intestinal, aumentando a permeabilidade apenas no duodeno.
+
+
+
+
+## Exercício 4.1
+
+Um laboratório farmacêutico comparou a concentração plasmática (ng/mL) obtida após a administração de três formulações de um medicamento.
+
+- Grupo 1 (Formulação A): 12 participantes
+
+- Grupo 2 (Formulação B): 12 participantes
+
+- Grupo 3 (Formulação C): 12 participantes
+
+Cada participante recebeu apenas uma das formulações, de modo que os grupos são independentes.
+
+- **Pergunta de pesquisa:** A concentração plasmática média difere entre as três formulações?
+
+- Dados: **exercicio4.1.csv*
+
+
+
+
+## Exercício 4.2
+
+Um laboratório avaliou o tempo de desintegração (minutos) de três formulações farmacêuticas.
+
+- Grupo 1 (Formulação A): 10 amostras
+- Grupo 2 (Formulação B): 10 amostras
+- Grupo 3 (Formulação C): 10 amostras
+
+As amostras foram avaliadas de forma independente. Durante a análise exploratória, observou-se que a variabilidade do tempo de desintegração não é semelhante entre as formulações.
+
+- **Perguntas de pesquisa:** O tempo médio de desintegração difere entre as três formulações? Quais formulações apresentam diferenças entre si?
+
+- Dados: **exercicio4.2.csv*
+
+
+
+
+## Exercício 4.3
+
+Um laboratório comparou três sistemas de liberação de um fármaco quanto ao percentual de fármaco liberado após um determinado período.
+
+- Grupo 1 (Sistema A): 12 determinações
+- Grupo 2 (Sistema B): 12 determinações
+- Grupo 3 (Sistema C): 12 determinações
+
+As determinações foram realizadas de forma independente. A distribuição dos resultados apresenta assimetria, com valores concentrados em uma faixa e alguns valores mais elevados.
+
+- **Perguntas de pesquisa:** A distribuição do percentual de fármaco liberado difere entre os três sistemas? Quais sistemas apresentam diferenças entre si?
+
+- Dados: **exercicio4.3.csv*
+
+
+
+
+## Exercício 4.4
+
+Um estudo avaliou o efeito de uma intervenção sobre a pressão arterial sistólica (mmHg) de 18 participantes. A pressão arterial foi medida nos mesmos participantes em três momentos:
+
+- Momento 1: antes da intervenção
+- Momento 2: 30 minutos após a intervenção
+- Momento 3: 60 minutos após a intervenção
+
+Assim, cada participante apresenta três medidas de pressão arterial.
+
+- **Perguntas de pesquisa:** A pressão arterial sistólica média varia entre os três momentos? Em quais momentos existem diferenças entre si?
+
+- Dados: **exercicio4.4.csv*
+
+
+
+
+## Exercício 4.5
+
+Quinze pacientes avaliaram a intensidade da dor, utilizando uma escala de 0 a 10, em três momentos durante um tratamento:
+
+- Momento 1: antes do tratamento
+- Momento 2: após 2 semanas
+- Momento 3: após 4 semanas
+
+As avaliações foram realizadas pelos mesmos pacientes nos três momentos.
+
+- **Perguntas de pesquisa:** O escore de dor difere entre os três momentos? Entre quais momentos existem diferenças?
+
+- Dados: **exercicio4.5.csv*
+
+
+
+
+## Exercício 4.6
+
+Um experimento farmacêutico avaliou o efeito de duas variáveis experimentais sobre uma resposta farmacêutica.
+
+- Fator 1 (Dose): Baixa vs. Alta
+- Fator 2 (Temperatura): 20 °C vs. 30 °C vs. 40 °C
+
+Foram utilizadas 8 replicações para cada combinação dos fatores (2 × 3 = 6 combinações; n = 48).
+
+- **Perguntas de pesquisa:** Existe interação entre a Dose e a Temperatura? A resposta difere entre as doses? A resposta difere entre as temperaturas? Caso exista interação, como o efeito da Dose se comporta em cada temperatura?
+
+- Dados: **exercicio4.6.csv*
+
+
+
 
 # Fim
