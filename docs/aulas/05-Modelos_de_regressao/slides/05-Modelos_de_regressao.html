@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+<script src="05-Modelos_de_regressao_files/libs/clipboard/clipboard.min.js"></script>
+<script src="05-Modelos_de_regressao_files/libs/quarto-html/tabby.min.js"></script>
+<script src="05-Modelos_de_regressao_files/libs/quarto-html/popper.min.js"></script>
+<script src="05-Modelos_de_regressao_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="05-Modelos_de_regressao_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="05-Modelos_de_regressao_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="05-Modelos_de_regressao_files/libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.38">
+
+  <meta name="author" content="FARMA0048 - Bioestatística  Programa de Pós-Graduação em Ciências Farmacêuticas (PPGCF)">
+  <title>Modelos de regressão</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="05-Modelos_de_regressao_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="05-Modelos_de_regressao_files/libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="05-Modelos_de_regressao_files/libs/revealjs/dist/theme/quarto-3763f834af527120b116a6f7de2be064.css">
+  <link href="05-Modelos_de_regressao_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="05-Modelos_de_regressao_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="05-Modelos_de_regressao_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="05-Modelos_de_regressao_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Modelos de regressão</h1>
+  <p class="subtitle">Prof.&nbsp;Dr.&nbsp;Sadraque E. F. Lucena<br> <a href="http://sadraquelucena.github.io/FARMA0048" style="font-size:.8em;">http://sadraquelucena.github.io/FARMA0048</a><br></p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+<p><em>FARMA0048 - Bioestatística</em><br> <em>Programa de Pós-Graduação em Ciências Farmacêuticas (PPGCF)</em></p> 
+</div>
+</div>
+</div>
+
+</section>
+<section id="modelos-de-regressão" class="slide level2">
+<h2>Modelos de regressão</h2>
+<ul>
+<li>Uma modelo de regressão é um método estatístico que modela a relação matemática entre uma variável de interesse e seus potenciais fatores determinantes.
+<ul>
+<li><strong>Desfecho (variável resposta):</strong> É o resultado clínico ou farmacológico de interesse que o modelo busca mensurar e prever (ex.: nível glicêmico, cura/óbito ou contagem de reações).</li>
+<li><strong>Variável explicativa:</strong> É a intervenção, dose do fármaco ou característica do paciente usada para explicar ou prever a variação no desfecho.</li>
+</ul></li>
+<li><strong>Cuidado!</strong> Associação indica apenas dependência estatística entre variáveis.
+<ul>
+<li>Causalidade exige comprovação de que a intervenção provoca diretamente o desfecho. Isso depdende do seneho do estudo.</li>
+</ul></li>
+</ul>
+</section>
+<section id="modelos-de-regressão-1" class="slide level2">
+<h2>Modelos de regressão</h2>
+<ul>
+<li>O tipo de desfecho determina o modelo.
+<ul>
+<li>Desfecho contínuo → regressão linear;</li>
+<li>Desfecho binário → regressão logística.</li>
+</ul></li>
+</ul>
+</section>
+<section id="regressão-linear" class="slide level2">
+<h2>Regressão linear</h2>
+<ul>
+<li>Esse modelo é usado quando o desfecho é numérico contínuo.</li>
+<li>Considere que <span class="math inline">\(y\)</span> é o desfecho e <span class="math inline">\(x_1,x_2,\ldots,x_n\)</span> são as variáveis explicativas.</li>
+<li>O modelo é <span class="math display">\[y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_p x_p + \varepsilon\]</span></li>
+<li>Exemplo:</li>
+</ul>
+<p>(tempo de desintegração) = 2,5 + 0,15 (força de compressão) – 0,80 (% de desintegrante) + <span class="math inline">\(\varepsilon\)</span></p>
+<ul>
+<li>Cada coeficiente representa a associação entre aquele preditor e o desfecho, mantendo constantes os demais preditores do modelo.</li>
+<li><span class="math inline">\(\varepsilon\)</span> é o erro aleatório.</li>
+</ul>
+</section>
+<section id="regressão-linear-1" class="slide level2">
+<h2>Regressão linear</h2>
+<p>O modelo pode ser apresentado assim:</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 19%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 9%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Variável</th>
+<th style="text-align: right;">Coeficiente (β)</th>
+<th style="text-align: right;">Erro-Padrão (EP)</th>
+<th style="text-align: right;">IC 95%</th>
+<th style="text-align: right;">p</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Intercepto</td>
+<td style="text-align: right;">2,50</td>
+<td style="text-align: right;">0,35</td>
+<td style="text-align: right;">[1,81; 3,19]</td>
+<td style="text-align: right;">0,008</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Força de Compressão (kN)</td>
+<td style="text-align: right;">0,15</td>
+<td style="text-align: right;">0,04</td>
+<td style="text-align: right;">[0,07; 0,23]</td>
+<td style="text-align: right;">0,037</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Desintegrante (%)</td>
+<td style="text-align: right;">–0,80</td>
+<td style="text-align: right;">0,12</td>
+<td style="text-align: right;">[–1,04; –0,56]</td>
+<td style="text-align: right;">&lt;0,001</td>
+</tr>
+</tbody>
+</table>
+<p>Variável resposta: Tempo de desintegração (minutos).</p>
+<p>Teste F: <span class="math inline">\(F = 18{,}45\)</span>; <span class="math inline">\(gl = 2{,}27\)</span>; <span class="math inline">\(p = 0{,}002\)</span>.</p>
+<p>Ajuste do modelo: <span class="math inline">\(R^2 = 0{,}84\)</span>; <span class="math inline">\(p &lt; 0{,}001\)</span>.</p>
+<p>IC 95%: Intervalo de Confiança de 95%.</p>
+</section>
+<section id="regressão-linear-2" class="slide level2">
+<h2>Regressão linear</h2>
+<ul>
+<li><p><strong>Teste F (<span class="math inline">\(p = 0{,}002\)</span>):</strong> Significa que o modelo como um todo é estatisticamente significativo (<span class="math inline">\(p&lt;0{,}05\)</span>) para explicar o tempo de desintegração.</p></li>
+<li><p><strong><span class="math inline">\(R^2 = 0{,}84\)</span>:</strong> Indica que 84% da variabilidade no tempo de desintegração é explicada pela força de compressão e porcentagem de desintegrante.</p></li>
+<li><p>Para os coeficientes das variáveis explicativas:</p>
+<ul>
+<li>Quando <span class="math inline">\(p &lt; 0{,}05\)</span>, a variável contribui significativamente para o desfecho.</li>
+<li>Lembre-se: <span class="math inline">\(p\)</span> indica apenas a presença de associação estatística; a magnitude do coeficiente (<span class="math inline">\(\beta\)</span>) é o que determina o impacto real na rotina farmacêutica.</li>
+</ul></li>
+</ul>
+</section>
+<section id="regressão-linear-3" class="slide level2">
+<h2>Regressão linear</h2>
+<p>Interpretação dos coeficientes do exemplo:</p>
+<ul>
+<li><strong>Força de Compressão (<span class="math inline">\(\beta = 0{,}15\)</span>; <span class="math inline">\(p = 0{,}037\)</span>):</strong> Apresenta relação direta e estatisticamente significativa (<span class="math inline">\(p &lt; 0{,}05\)</span>). Cada 1 kN adicional aumenta o tempo de desintegração em 9 segundos.</li>
+<li><strong>Desintegrante (<span class="math inline">\(\beta = -0{,}80\)</span>; <span class="math inline">\(p &lt; 0{,}001\)</span>):</strong> Apresenta relação inversa e estatisticamente significativa. Cada aumento de 1% na proporção de desintegrante reduz o tempo de desintegração em 48 segundos.</li>
+</ul>
+</section>
+<section id="pressupostos-e-diagnósticos" class="slide level2">
+<h2>Pressupostos e Diagnósticos</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Pressuposto</th>
+<th style="text-align: left;">Ferramenta</th>
+<th style="text-align: left;">Interpretação</th>
+<th style="text-align: left;">Ação</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Normalidade dos Resíduos</strong></td>
+<td style="text-align: left;">Teste de Shapiro-Wilk <br>+ Gráfico Q-Q</td>
+<td style="text-align: left;"><strong><span class="math inline">\(p &gt; 0{,}05\)</span>:</strong> Resíduos normais.</td>
+<td style="text-align: left;">Se <span class="math inline">\(n &gt; 30\)</span>, o modelo é robusto a pequenos desvios. Se houver viés grave, transforme <span class="math inline">\(Y\)</span> ou use MLG.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Homoscedasticidade</strong></td>
+<td style="text-align: left;">Gráfico <em>Resíduos vs.&nbsp;Ajustados</em> (Fitted)</td>
+<td style="text-align: left;"><strong>Gráfico:</strong> Pontos dispersos ao acaso, sem formato de “funil” ou “cone”.</td>
+<td style="text-align: left;">Se houver funil (heteroscedasticidade), considere transformação (<span class="math inline">\(log(Y)\)</span>) ou erros-padrão robustos.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pressupostos-e-diagnósticos-1" class="slide level2">
+<h2>Pressupostos e Diagnósticos</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Pressuposto</th>
+<th style="text-align: left;">Ferramenta</th>
+<th style="text-align: left;">Interpretação</th>
+<th style="text-align: left;">Ação</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Linearidade</strong></td>
+<td style="text-align: left;">Gráfico <em>Resíduos vs.&nbsp;Ajustados</em> / Residual Plots</td>
+<td style="text-align: left;"><strong>Gráfico:</strong> Sem padrões parabólicos ou em “U”. Linha de tendência horizontal em zero.</td>
+<td style="text-align: left;">Se houver curvatura, adicione termos quadráticos (<span class="math inline">\(X^2\)</span>) ou transforme a variável explicativa.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pressupostos-e-diagnósticos-2" class="slide level2">
+<h2>Pressupostos e Diagnósticos</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Pressuposto</th>
+<th style="text-align: left;">Ferramenta</th>
+<th style="text-align: left;">Interpretação</th>
+<th style="text-align: left;">Ação</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Independência</strong></td>
+<td style="text-align: left;">Teste de Durbin-Watson</td>
+<td style="text-align: left;"><span class="math inline">\(p &gt; 0{,}05\)</span> indica ausência de autocorrelação.</td>
+<td style="text-align: left;">Importante em dados temporais/seriados. Se violado, considere modelos para dados correlacionados.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Multicolinearidade</strong></td>
+<td style="text-align: left;">Estatísticas VIF e Tolerance</td>
+<td style="text-align: left;">VIF <span class="math inline">\(&lt; 5\)</span> e Tolerance <span class="math inline">\(&gt; 0{,}2\)</span>.</td>
+<td style="text-align: left;">Se VIF <span class="math inline">\(\geq 5\)</span>, remova um dos preditores redundantes ou combine-os em um índice.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pressupostos-e-diagnósticos-3" class="slide level2">
+<h2>Pressupostos e Diagnósticos</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Pressuposto</th>
+<th style="text-align: left;">Ferramenta</th>
+<th style="text-align: left;">Interpretação</th>
+<th style="text-align: left;">Ação</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Pontos Influentes</strong></td>
+<td style="text-align: left;">Distância de Cook</td>
+<td style="text-align: left;"><strong>Cook <span class="math inline">\(&gt; 1\)</span>:</strong> Ponto influente.</td>
+<td style="text-align: left;">Investigar o dado (erro de digitação?). Não remova sem justificativa clínica/metodológica.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="exemplo-5.1" class="slide level2">
+<h2>Exemplo 5.1</h2>
+<p>Um grupo de pesquisa em Farmácia Verde avaliou a eficiência de extração de flavonoides anti-inflamatórios a partir de resíduos agroindustriais (<span class="math inline">\(N = 60\)</span>), comparando um solvente orgânico tradicional com um <strong>Solvente Eutético Profundo Natural (NADES)</strong>.</p>
+<p><strong>Variáveis do Estudo:</strong></p>
+<ul>
+<li><p><strong>Desfecho (<span class="math inline">\(Y\)</span>):</strong> Rendimento de Extração (<span class="math inline">\(\text{mg/g}\)</span> de planta) — <em>Contínua</em></p></li>
+<li><p><strong>Preditor 1 (<span class="math inline">\(X_1\)</span>):</strong> Temperatura do Processo (<span class="math inline">\(30^\circ\text{C}\)</span> a <span class="math inline">\(70^\circ\text{C}\)</span>) — <em>Contínua</em></p></li>
+<li><p><strong>Preditor 2 (<span class="math inline">\(X_2\)</span>):</strong> Razão Solvente/Massa (<span class="math inline">\(10\)</span> a <span class="math inline">\(30\text{ mL/g}\)</span>) — <em>Contínua</em></p></li>
+<li><p><strong>Preditor 3 (<span class="math inline">\(X_3\)</span>):</strong> Tipo de Solvente (<em>Etanol 70%</em> vs.&nbsp;<em>NADES Verde</em>) — <em>Categórica</em></p></li>
+<li><p>Dados: <em>exemplo5.1.csv</em></p></li>
+</ul>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p align="center">
+<img src="imagens/reglinear_jamovi3.png" width="600">
+</p>
+</div><div class="column" style="width:50%;">
+<p align="center">
+<img src="imagens/reglinear_jamovi4.png" width="600">
+</p>
+</div></div>
+</section>
+<section id="exercício-5.1" class="slide level2">
+<h2>Exercício 5.1</h2>
+<div style="font-size: 75%;">
+<p><em>Tabela de Coeficientes da Regressão Múltipla (<span class="math inline">\(N = 60\)</span>)</em></p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 34%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 15%">
+<col style="width: 12%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Variável</th>
+<th style="text-align: right;"><span class="math inline">\(\beta\)</span></th>
+<th style="text-align: right;">Erro-Padrão</th>
+<th style="text-align: center;">IC 95%</th>
+<th style="text-align: right;"><span class="math inline">\(t\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(p\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Intercepto</strong></td>
+<td style="text-align: right;">2,88</td>
+<td style="text-align: right;">2,50</td>
+<td style="text-align: center;">[-2,13; 7,90]</td>
+<td style="text-align: right;">1,15</td>
+<td style="text-align: right;">0,254</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Solvente</strong> <em>(NADES Verde vs.&nbsp;Etanol 70%)</em></td>
+<td style="text-align: right;">11,64</td>
+<td style="text-align: right;">0,90</td>
+<td style="text-align: center;">[9,83; 13,46]</td>
+<td style="text-align: right;">12,87</td>
+<td style="text-align: right;">&lt; 0,001</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Temperatura (<span class="math inline">\(^\circ\text{C}\)</span>)</strong></td>
+<td style="text-align: right;">0,37</td>
+<td style="text-align: right;">0,04</td>
+<td style="text-align: center;">[0,29; 0,45]</td>
+<td style="text-align: right;">8,89</td>
+<td style="text-align: right;">&lt; 0,001</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Razão Solvente</strong> <em>(mL/g)</em></td>
+<td style="text-align: right;">0,88</td>
+<td style="text-align: right;">0,07</td>
+<td style="text-align: center;">[0,75; 1,01]</td>
+<td style="text-align: right;">13,16</td>
+<td style="text-align: right;">&lt; 0,001</td>
+</tr>
+</tbody>
+</table>
+<p><em>Variável resposta: Rendimento_Bioativo (mg/g).</em></p>
+<p><em>Ajuste do Modelo: <span class="math inline">\(R^2 = 0{,}900\)</span>; Teste F: <span class="math inline">\(F_{(3, 56)} = 171{,}45\)</span> (<span class="math inline">\(p &lt; 0{,}001\)</span>).</em></p>
+<p><em>IC 95%: Intervalo de Confiança de 95%.</em></p>
+</div>
+</section>
+<section id="exercício-5.1-1" class="slide level2">
+<h2>Exercício 5.1</h2>
+<ul>
+<li>O Teste F (<span class="math inline">\(p &lt; 0{,}001\)</span>) indica que o conjunto de variáveis explica significativamente o rendimento de extração do bioativo.</li>
+<li><span class="math inline">\(R^2 = 0{,}900\)</span> significa que 90,0% da variabilidade no rendimento do bioativo é explicada pelas variáveis do modelo.</li>
+<li>Diagnosticando o Modelo:
+<ul>
+<li><strong>Normalidade dos Resíduos:</strong> Teste de Shapiro-Wilk (<span class="math inline">\(W = 0{,}98\)</span>, <span class="math inline">\(p = 0{,}399\)</span>) confirma a distribuição normal dos resíduos.</li>
+<li><strong>Multicolinearidade:</strong> Ausente (VIF <span class="math inline">\(&lt; 1{,}05\)</span> e Tolerância <span class="math inline">\(&gt; 0{,}97\)</span> para todas as variáveis).</li>
+<li><strong>Autocorrelação:</strong> Teste de Durbin-Watson apresentou <span class="math inline">\(DW = 1{,}42\)</span> (<span class="math inline">\(p = 0{,}030\)</span>).</li>
+</ul></li>
+</ul>
+</section>
+<section id="exercício-5.1-2" class="slide level2">
+<h2>Exercício 5.1</h2>
+<ul>
+<li>Interpretação dos Coeficientes (<span class="math inline">\(\beta\)</span>):
+<ul>
+<li>A referência do modelo é o <strong>Etanol 70%</strong>.</li>
+<li><strong>Intercepto (<span class="math inline">\(2{,}88\)</span>; <span class="math inline">\(p = 0{,}254\)</span>):</strong> Rendimento base estimado (<span class="math inline">\(2{,}88\text{ mg/g}\)</span>) quando a temperatura e a razão de solvente são teoricamente nulas (não estatisticamente diferente de zero).</li>
+<li><strong>Solvente (+11,64):</strong> Mudar do Etanol 70% para o NADES Verde aumenta o rendimento do bioativo em 11,64 mg/g.</li>
+<li><strong>Temperatura (+0,37):</strong> Cada <span class="math inline">\(1^\circ\text{C}\)</span> de aumento na temperatura incrementa o rendimento em 0,37 mg/g.</li>
+<li><strong>Razão Solvente (+0,88):</strong> Cada aumento de <span class="math inline">\(1\text{ mL/g}\)</span> na proporção de solvente gera um ganho de 0,88 mg/g no rendimento.</li>
+</ul></li>
+</ul>
+</section>
+<section id="exercício-5.2" class="slide level2">
+<h2>Exercício 5.2</h2>
+<p>Um estudo de pré-formulação farmacêutica avaliou o efeito de fatores operacionais na <strong>Taxa de Dissolução (%)</strong> de um comprimido após 30 minutos (<span class="math inline">\(n = 48\)</span>).</p>
+<p><strong>Variáveis do Estudo:</strong></p>
+<ul>
+<li><strong>Desfecho (<span class="math inline">\(Y\)</span>):</strong> Taxa de Dissolução em 30 min (%) – <em>Variável Contínua</em></li>
+<li><strong>Preditor 1 (<span class="math inline">\(X_1\)</span>):</strong> Dose do Fármaco (<em>Baixa vs.&nbsp;Alta</em>)</li>
+<li><strong>Preditor 2 (<span class="math inline">\(X_2\)</span>):</strong> Temperatura do Ensaio (<em>20 °C vs.&nbsp;30 °C vs.&nbsp;40 °C</em>)</li>
+<li><strong>Preditor 3 (<span class="math inline">\(X_3\)</span>):</strong> Umidade Relativa do Ar (<em>40% vs.&nbsp;75%</em>)</li>
+</ul>
+<p><strong>Perguntas de Pesquisa:</strong> Existe interação significativa entre a <em>Dose</em> e a <em>Temperatura</em> no perfil de dissolução? Como a <em>Umidade Relativa</em> ajusta o efeito principal do processo?</p>
+<ul>
+<li>Dados: <em>exemplo5.2.csv</em></li>
+</ul>
+</section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p align="center">
+<img src="imagens/reglinear_jamovi1.png" width="600">
+</p>
+</div><div class="column" style="width:50%;">
+<p align="center">
+<img src="imagens/reglinear_jamovi2.png" width="600">
+</p>
+</div></div>
+</section>
+<section id="exemplo-5.2" class="slide level2">
+<h2>Exemplo 5.2</h2>
+<div style="font-size: 75%;">
+<p><em>Tabela de Coeficientes da Regressão Múltipla com Interação (<span class="math inline">\(N = 48\)</span>)</em></p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 34%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 15%">
+<col style="width: 12%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Variável</th>
+<th style="text-align: right;"><span class="math inline">\(\beta\)</span></th>
+<th style="text-align: right;">Erro-Padrão</th>
+<th style="text-align: center;">IC 95%</th>
+<th style="text-align: right;"><span class="math inline">\(t\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(p\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Intercepto</strong></td>
+<td style="text-align: right;">50,68</td>
+<td style="text-align: right;">0,90</td>
+<td style="text-align: center;">[48,86; 52,50]</td>
+<td style="text-align: right;">56,15</td>
+<td style="text-align: right;">&lt; 0,001</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Dose</strong> <em>(Alta vs.&nbsp;Baixa)</em></td>
+<td style="text-align: right;">14,07</td>
+<td style="text-align: right;">1,18</td>
+<td style="text-align: center;">[11,69; 16,46]</td>
+<td style="text-align: right;">11,91</td>
+<td style="text-align: right;">&lt; 0,001</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Temperatura</strong> <em>(30 °C vs.&nbsp;20 °C)</em></td>
+<td style="text-align: right;">-7,90</td>
+<td style="text-align: right;">1,18</td>
+<td style="text-align: center;">[-10,29; -5,51]</td>
+<td style="text-align: right;">-6,69</td>
+<td style="text-align: right;">&lt; 0,001</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Temperatura</strong> <em>(40 °C vs.&nbsp;20 °C)</em></td>
+<td style="text-align: right;">-21,93</td>
+<td style="text-align: right;">1,18</td>
+<td style="text-align: center;">[-24,31; -19,54]</td>
+<td style="text-align: right;">-18,56</td>
+<td style="text-align: right;">&lt; 0,001</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Umidade</strong> <em>(75% vs.&nbsp;40%)</em></td>
+<td style="text-align: right;">-5,18</td>
+<td style="text-align: right;">0,68</td>
+<td style="text-align: center;">[-6,56; -3,80]</td>
+<td style="text-align: right;">-7,59</td>
+<td style="text-align: right;">&lt; 0,001</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Dose <span class="math inline">\(\times\)</span> Temp</strong> <em>(Alta vs.&nbsp;Baixa <span class="math inline">\(\times\)</span> 30 °C vs.&nbsp;20 °C)</em></td>
+<td style="text-align: right;">1,21</td>
+<td style="text-align: right;">1,67</td>
+<td style="text-align: center;">[-2,17; 4,58]</td>
+<td style="text-align: right;">0,72</td>
+<td style="text-align: right;">0,475</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Dose <span class="math inline">\(\times\)</span> Temp</strong> <em>(Alta vs.&nbsp;Baixa <span class="math inline">\(\times\)</span> 40 °C vs.&nbsp;20 °C)</em></td>
+<td style="text-align: right;">-9,98</td>
+<td style="text-align: right;">1,67</td>
+<td style="text-align: center;">[-13,36; -6,61]</td>
+<td style="text-align: right;">-5,97</td>
+<td style="text-align: right;"><strong>&lt; 0,001</strong></td>
+</tr>
+</tbody>
+</table>
+<p><em>Variável resposta: Taxa de Dissolução (%).</em></p>
+<p><em>Ajuste do Modelo: <span class="math inline">\(R^2 = 0{,}973\)</span>; Teste F: <span class="math inline">\(F_{(6, 41)} = 248{,}64\)</span> (<span class="math inline">\(p &lt; 0{,}001\)</span>).</em></p>
+<p><em>IC 95%: Intervalo de Confiança de 95%.</em></p>
+</div>
+</section>
+<section id="exemplo-5.2-1" class="slide level2">
+<h2>Exemplo 5.2</h2>
+<ul>
+<li>O Teste F (<span class="math inline">\(p &lt; 0{,}001\)</span>) indica que as variáveis explicam a variação da taxa de dissolução.</li>
+<li><span class="math inline">\(R^2 = 0{,}973\)</span> significa que 97,3% da variabilidade na taxa de dissolução do comprimido é explicada pelas variáveis incluídas no modelo.</li>
+<li>Interpretação dos Coeficientes (<span class="math inline">\(\beta\)</span>):
+<ul>
+<li>As referências são <strong>dose baixa</strong>, <strong>temperatura de 20ºC</strong>, <strong>Umidade em 40%</strong>.</li>
+<li><strong>Umidade (–5,18$):</strong> Deixar o ambiente úmido tira 5,18% da dissolução, agindo de forma independente da dose e da temperatura.</li>
+<li><strong>Dose (+14,07):</strong> A 20°C, aumentar a dose para a versão “Alta” aumenta a taxa de dissolução em 14,07% com relação à dose baixa.</li>
+</ul></li>
+</ul>
+</section>
+<section id="exemplo-5.2-2" class="slide level2">
+<h2>Exemplo 5.2</h2>
+<ul>
+<li>Interpretação dos Coeficientes (<span class="math inline">\(\beta\)</span>):
+<ul>
+<li><strong>Interação Dose <span class="math inline">\(\times\)</span> Temp 30 °C (<span class="math inline">\(+1{,}21\)</span>; não significativo):</strong> A 30 °C, a Dose Alta se comporta praticamente da mesma forma que a 20°C.</li>
+<li><strong>Interação Dose <span class="math inline">\(\times\)</span> Temp 40 °C (<span class="math inline">\(-9{,}98\)</span>; significativo):</strong> A 40 °C, o benefício de usar a Dose Alta é atenuado em 9,98% devido ao estresse térmico. O efeito da dose depende de quão quente está o ambiente.</li>
+<li><strong>Efeito Principal da Temperatura:</strong> Em relação a 20 °C, a elevação para 30 °C reduz a dissolução em 6,70% (<span class="math inline">\(\beta = -6{,}70\)</span>; <span class="math inline">\(p &lt; 0{,}001\)</span>), enquanto a elevação para 40 °C gera uma queda de 31,91% (<span class="math inline">\(\beta = -31{,}91\)</span>; <span class="math inline">\(p &lt; 0{,}001\)</span>).</li>
+</ul></li>
+</ul>
+</section>
+<section id="regressão-logística" class="slide level2">
+<h2>Regressão logística</h2>
+<ul>
+<li>Usado quando o desfecho (<span class="math inline">\(y\)</span>) é <strong>binário</strong> (ex.: Sucesso/Falha, Adesão/Não-adesão, Apresenta Efeito Colateral: Sim/Não).</li>
+<li>Considere que <span class="math inline">\(P\)</span> é a probabilidade do evento de interesse e <span class="math inline">\(x_1, x_2, \ldots, x_p\)</span> são as variáveis explicativas.</li>
+<li>O modelo é representado por: <span class="math display">\[logit(p) = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_p x_p\]</span></li>
+<li>Exemplo:</li>
+</ul>
+<p>logit(Falha na Dissolução) = –2,10 + 0,45 (Idade da Matriz) – 1,20 (Concentração de Polímero)</p>
+<ul>
+<li>Os coeficientes originais (<span class="math inline">\(\beta\)</span>) representam a mudança na razão de chances em escala logarítmica, mas na prática interpretamos a <strong>Razão de Chances</strong> (<span class="math inline">\(OR = e^\beta\)</span>).</li>
+</ul>
+</section>
+<section id="regressão-logística-1" class="slide level2">
+<h2>Regressão logística</h2>
+<div style="font-size: 75%;">
+<p><em>Tabela de Estimativas do Modelo — Falha na Dissolução (Sim vs.&nbsp;Não)</em></p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 20%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Preditor</th>
+<th style="text-align: right;">Coeficiente (<span class="math inline">\(\beta\)</span>)</th>
+<th style="text-align: right;">Erro-Padrão</th>
+<th style="text-align: right;">Razão de Chances (<span class="math inline">\(OR\)</span>)</th>
+<th style="text-align: center;">IC 95% para <span class="math inline">\(OR\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(p\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Intercepto</strong></td>
+<td style="text-align: right;">-2,10</td>
+<td style="text-align: right;">0,65</td>
+<td style="text-align: right;">0,12</td>
+<td style="text-align: center;">[0,03; 0,44]</td>
+<td style="text-align: right;">0,001</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Idade da Matriz (meses)</strong></td>
+<td style="text-align: right;">0,45</td>
+<td style="text-align: right;">0,18</td>
+<td style="text-align: right;">1,57</td>
+<td style="text-align: center;">[1,10; 2,23]</td>
+<td style="text-align: right;">0,012</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Concentração de Polímero (%)</strong></td>
+<td style="text-align: right;">-1,20</td>
+<td style="text-align: right;">0,32</td>
+<td style="text-align: right;">0,30</td>
+<td style="text-align: center;">[0,16; 0,56]</td>
+<td style="text-align: right;">&lt; 0,001</td>
+</tr>
+</tbody>
+</table>
+<p><em>Variável resposta: Falha na Dissolução (1 = Sim, 0 = Não; Nível de Referência = Não).</em></p>
+<p><em>Teste da Razão de Verossimilhança: <span class="math inline">\(\chi^2 = 28{,}42\)</span>; <span class="math inline">\(gl = 2\)</span>; <span class="math inline">\(p &lt; 0{,}001\)</span>.</em></p>
+<p><em>Ajuste do Modelo: Pseudo <span class="math inline">\(R^2\)</span> de McFadden = <span class="math inline">\(0{,}412\)</span>; AIC = <span class="math inline">\(42{,}15\)</span>.</em></p>
+</div>
+</section>
+<section id="regressão-logística-2" class="slide level2">
+<h2>Regressão logística</h2>
+<ul>
+<li><strong>Teste da Razão de Verossimilhança (<span class="math inline">\(\chi^2 = 28{,}42\)</span>; <span class="math inline">\(p &lt; 0{,}001\)</span>):</strong> Substitui o Teste F. Indica que o modelo é válido.</li>
+<li><strong>Pseudo <span class="math inline">\(R^2\)</span> de McFadden (<span class="math inline">\(0{,}412\)</span>):</strong> Substitui o <span class="math inline">\(R^2\)</span> tradicional. Valores entre <span class="math inline">\(0{,}20\)</span> e <span class="math inline">\(0{,}40\)</span> indicam um excelente ajuste do modelo aos dados binários.</li>
+<li>Para a Razão de Chances (<span class="math inline">\(OR = e^\beta\)</span>):
+<ul>
+<li><strong><span class="math inline">\(OR = 1\)</span>:</strong> Ausência de efeito (o preditor não altera as chances do evento).</li>
+<li><strong><span class="math inline">\(OR &gt; 1\)</span>:</strong> O preditor aumenta as chances do evento ocorrer (fator de risco/exposição positiva).</li>
+<li><strong><span class="math inline">\(OR &lt; 1\)</span>:</strong> O preditor reduz as chances do evento ocorrer (fator de proteção).</li>
+<li>Se o <strong>IC 95% da <span class="math inline">\(OR\)</span> contiver o valor <span class="math inline">\(1{,}00\)</span></strong>, o preditor não é estatisticamente significativo (<span class="math inline">\(p &gt; 0{,}05\)</span>).</li>
+</ul></li>
+</ul>
+</section>
+<section id="regressão-logística-3" class="slide level2">
+<h2>Regressão logística</h2>
+<p>Interpretação das Razões de Chances do exemplo:</p>
+<ul>
+<li><strong>Idade da Matriz (<span class="math inline">\(OR = 1{,}57\)</span>; <span class="math inline">\(p = 0{,}012\)</span>):</strong> Apresenta relação direta e significativa com a falha. Cada mês adicional de armazenamento da matriz polimérica <strong>aumenta as chances de falha na dissolução em 57%</strong> (<span class="math inline">\(OR - 1 = 0{,}57\)</span>), mantendo constante a concentração de polímero.</li>
+<li><strong>Concentração de Polímero (<span class="math inline">\(OR = 0{,}30\)</span>; <span class="math inline">\(p &lt; 0{,}001\)</span>):</strong> Apresenta relação inversa e significativa. Cada aumento de 1% na concentração de polímero <strong>reduz as chances de falha na dissolução em 70%</strong> (<span class="math inline">\(1 - 0{,}30 = 0{,}70\)</span>), funcionando como fator de proteção para a formulação.</li>
+</ul>
+</section>
+<section id="pressupostos-e-diagnósticos-4" class="slide level2">
+<h2>Pressupostos e Diagnósticos</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Pressuposto</th>
+<th style="text-align: left;">Ferramenta</th>
+<th style="text-align: left;">Interpretação</th>
+<th style="text-align: left;">Ação</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Linearidade do Logit</strong></td>
+<td style="text-align: left;">Teste de Box-Tidwell</td>
+<td style="text-align: left;"><strong><span class="math inline">\(p &gt; 0{,}05\)</span>:</strong> Garante relação linear entre variáveis contínuas e a escala logit.</td>
+<td style="text-align: left;">Se <span class="math inline">\(p &lt; 0{,}05\)</span>, faça <span class="math inline">\(X^2\)</span>, <span class="math inline">\(\log X\)</span> ou categorize a variável explicativa.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Adequação do Modelo</strong></td>
+<td style="text-align: left;">Teste de Hosmer-Lemeshow</td>
+<td style="text-align: left;"><strong><span class="math inline">\(p &gt; 0{,}05\)</span>:</strong> Indica bom ajustamente.</td>
+<td style="text-align: left;">Se <span class="math inline">\(p &lt; 0{,}05\)</span>, considere adicionar interações ou termos quadráticos.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pressupostos-e-diagnósticos-5" class="slide level2">
+<h2>Pressupostos e Diagnósticos</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Pressuposto</th>
+<th style="text-align: left;">Ferramenta</th>
+<th style="text-align: left;">Interpretação</th>
+<th style="text-align: left;">Ação</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Capacidade Causal e Descritiva</strong></td>
+<td style="text-align: left;">Matriz de Confusão e Curva ROC (AUC)</td>
+<td style="text-align: left;"><strong>Matriz:</strong> Avalia Acurácia, Sensibilidade e Especificidade.<br><strong>AUC <span class="math inline">\(&gt; 0{,}80\)</span>:</strong> Excelente capacidade de discriminação.</td>
+<td style="text-align: left;">Se a acurácia for baixa, reavalie os pontos de corte (<em>cut-off</em>) de probabilidade ou inclua novos preditores no modelo.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Multicolinearidade</strong></td>
+<td style="text-align: left;">Estatísticas VIF e Tolerance</td>
+<td style="text-align: left;"><strong>VIF <span class="math inline">\(&lt; 5\)</span></strong> e <strong>Tolerance <span class="math inline">\(&gt; 0{,}2\)</span></strong>.</td>
+<td style="text-align: left;">Se VIF <span class="math inline">\(\ge 5\)</span>, remova um dos variáveis redundantes.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pressupostos-e-diagnósticos-6" class="slide level2">
+<h2>Pressupostos e Diagnósticos</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Pressuposto</th>
+<th style="text-align: left;">Ferramenta</th>
+<th style="text-align: left;">Interpretação</th>
+<th style="text-align: left;">Ação</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Separação Perfeita / Observações Influentes</strong></td>
+<td style="text-align: left;">Erros-Padrão dos <span class="math inline">\(\beta\)</span> e Distância de Cook / Residuals</td>
+<td style="text-align: left;"><strong>EP extremamente elevado (<span class="math inline">\(\beta &gt; 10\)</span>, <span class="math inline">\(\text{EP} &gt; 50\)</span>):</strong> Indica separação perfeita ou dados esparsos.<br><strong>Cook <span class="math inline">\(&gt; 1\)</span>:</strong> Ponto influente.</td>
+<td style="text-align: left;">Em caso de separação perfeita, utilize regressão penalizada (Firth) ou reclassifique as categorias do preditor.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="exemplo-5.3" class="slide level2">
+<h2>Exemplo 5.3</h2>
+<p>Um estudo avaliou os fatores associados à ddesão terapêutica tardia em doentes idosos polimedicados acompanhados na rede pública (<span class="math inline">\(n = 80\)</span>).</p>
+<p><strong>Variáveis do Estudo:</strong></p>
+<ul>
+<li><strong>Desfecho (<span class="math inline">\(Y\)</span>):</strong> Adesão Terapêutica Adequada (<em>Não vs.&nbsp;Sim</em>) – <em>Variável Dicotômica</em></li>
+<li><strong>Preditor 1 (<span class="math inline">\(X_1\)</span>):</strong> Idade do Doente (anos) – <em>Variável Contínua</em></li>
+<li><strong>Preditor 2 (<span class="math inline">\(X_2\)</span>):</strong> Polifarmácia [<span class="math inline">\(\ge 5\)</span> medicamentos/dia] (<em>Não vs.&nbsp;Sim</em>)</li>
+<li><strong>Preditor 3 (<span class="math inline">\(X_3\)</span>):</strong> Uso de Organizador Semanal de Comprimidos (<em>Não vs.&nbsp;Sim</em>)</li>
+</ul>
+<p><strong>Perguntas de Pesquisa:</strong> O uso do organizador semanal de comprimidos aumenta significativamente as chances de adesão ao tratamento? Como a polifarmácia e a idade ajustam a probabilidade de adesão do doente?</p>
+<ul>
+<li>Dados: <em>exemplo5.3.csv</em></li>
+</ul>
+</section>
+<section id="section-2" class="slide level2">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p align="center">
+<img src="imagens/reglogistica_jamovi1.png" width="600">
+</p>
+</div><div class="column" style="width:50%;">
+<p align="center">
+<img src="imagens/reglogistica_jamovi2.png" width="600">
+</p>
+</div></div>
+</section>
+<section id="exemplo-5.3-1" class="slide level2">
+<h2>Exemplo 5.3</h2>
+<div style="font-size: 70%;">
+<p><em>Tabela de Estimativas da Regressão Logística Binária (<span class="math inline">\(N = 80\)</span>)</em></p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 17%">
+<col style="width: 13%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Variável</th>
+<th style="text-align: right;"><span class="math inline">\(\beta\)</span></th>
+<th style="text-align: right;">Erro-Padrão</th>
+<th style="text-align: right;"><span class="math inline">\(OR\)</span></th>
+<th style="text-align: center;">IC 95% para <span class="math inline">\(OR\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(Z\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(p\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Intercepto</strong></td>
+<td style="text-align: right;">5,94</td>
+<td style="text-align: right;">2,94</td>
+<td style="text-align: right;">381,67</td>
+<td style="text-align: center;">[1,21; 120656,03]</td>
+<td style="text-align: right;">2,02</td>
+<td style="text-align: right;">0,043</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Idade</strong> <em>(anos)</em></td>
+<td style="text-align: right;">-0,07</td>
+<td style="text-align: right;">0,04</td>
+<td style="text-align: right;">0,93</td>
+<td style="text-align: center;">[0,86; 1,01]</td>
+<td style="text-align: right;">-1,72</td>
+<td style="text-align: right;">0,086</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Polifarmácia</strong> <em>(Sim vs.&nbsp;Não)</em></td>
+<td style="text-align: right;">-2,68</td>
+<td style="text-align: right;">0,69</td>
+<td style="text-align: right;">0,07</td>
+<td style="text-align: center;">[0,02; 0,27]</td>
+<td style="text-align: right;">-3,88</td>
+<td style="text-align: right;"><strong>&lt; 0,001</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Organizador</strong> <em>(Sim vs.&nbsp;Não)</em></td>
+<td style="text-align: right;">2,77</td>
+<td style="text-align: right;">0,72</td>
+<td style="text-align: right;">15,96</td>
+<td style="text-align: center;">[3,92; 64,96]</td>
+<td style="text-align: right;">3,87</td>
+<td style="text-align: right;"><strong>&lt; 0,001</strong></td>
+</tr>
+</tbody>
+</table>
+<p><em>Variável resposta: Adesão Terapêutica (1 = Sim, 0 = Não; Nível de Referência = Não).</em></p>
+<p><em>Estatísticas de Colinearidade: VIF máximo = 1,29; Tolerância mínima = 0,78 (ausência de multicolinearidade).</em></p>
+<p><em>IC 95%: Intervalo de Confiança de 95% para a Razão de Chances (<span class="math inline">\(OR\)</span>).</em></p>
+</div>
+</section>
+<section id="exemplo-5.3-2" class="slide level2">
+<h2>Exemplo 5.3</h2>
+<ul>
+<li><strong>Teste da razão de Verosimilhanças:</strong>
+<ul>
+<li><strong>Polifarmácia (<span class="math inline">\(p &lt; 0{,}001\)</span>)</strong> e <strong>Organizador (<span class="math inline">\(p &lt; 0{,}001\)</span>)</strong> contribuem de forma altamente significativa para a explicação da adesão ao tratamento.</li>
+<li><strong>Idade (<span class="math inline">\(p = 0{,}075\)</span>)</strong> não alcançou significância estatística ao nível de 5%.</li>
+</ul></li>
+<li><strong>Interpretação da Razão de Chances (<span class="math inline">\(OR = e^\beta\)</span>):</strong>
+<ul>
+<li>Os níveis de referência são: <strong>Polifarmácia = Não</strong> e <strong>Organizador = Não</strong>.</li>
+<li><strong><span class="math inline">\(OR &gt; 1\)</span>:</strong> Aumenta a chance do desfecho “Adesão = Sim” (fator facilitador/protetor).</li>
+<li><strong><span class="math inline">\(OR &lt; 1\)</span>:</strong> Reduz a chance do desfecho “Adesão = Sim” (fator de risco/barreira).</li>
+</ul></li>
+</ul>
+</section>
+<section id="exemplo-5.3-3" class="slide level2">
+<h2>Exemplo 5.3</h2>
+<ul>
+<li><strong>Interpretação dos Coeficientes e Razões de Chances (<span class="math inline">\(OR\)</span>):</strong>
+<ul>
+<li><strong>Organizador Semanal (<span class="math inline">\(OR = 15{,}96\)</span>; <span class="math inline">\(p &lt; 0{,}001\)</span>):</strong> O uso do organizador <strong>aumenta em cerca de 16 vezes</strong> as chances de o paciente aderir ao tratamento (<span class="math inline">\(OR = 15{,}96\)</span>; IC 95%: <span class="math inline">\([3{,}92;\; 64{,}96]\)</span>), ajustando para a idade e a polifarmácia.</li>
+<li><strong>Polifarmácia (<span class="math inline">\(OR = 0{,}07\)</span>; <span class="math inline">\(p &lt; 0{,}001\)</span>):</strong> Pacientes em polifarmácia apresentam uma <strong>redução de 93% nas chances de adesão</strong> (<span class="math inline">\(1 - 0{,}07 = 0{,}93\)</span>) em comparação com aqueles que não utilizam múltiplos medicamentos (<span class="math inline">\(OR = 0{,}07\)</span>; IC 95%: <span class="math inline">\([0{,}02;\; 0{,}27]\)</span>).</li>
+<li><strong>Idade (<span class="math inline">\(\beta = -0{,}07\)</span>; <span class="math inline">\(OR = 0{,}93\)</span>; <span class="math inline">\(p = 0{,}086\)</span>):</strong> Não apresentou efeito estatisticamente significativo (<span class="math inline">\(p &gt; 0{,}05\)</span>; o IC 95% da <span class="math inline">\(OR\)</span> inclui o valor <span class="math inline">\(1{,}00\)</span>).</li>
+</ul></li>
+</ul>
+</section>
+<section id="exemplo-5.4" class="slide level2">
+<h2>Exemplo 5.4</h2>
+<p>Um estudo avaliou os fatores associados à Ocorrência de Reação Adversa Medicamentosa (RAM) Grave em pacientes internados em unidade de terapia intensiva (<span class="math inline">\(N = 100\)</span>).</p>
+<p><strong>Variáveis do Estudo:</strong></p>
+<ul>
+<li><strong>Desfecho (<span class="math inline">\(Y\)</span>):</strong> Ocorrência de RAM Grave (<em>Não vs.&nbsp;Sim</em>) – <em>Variável binária</em></li>
+<li><strong>Preditor 1 (<span class="math inline">\(X_1\)</span>):</strong> Taxa de Filtração Glomerular Estimada (eTFG, $mL/min/1,73 m²) – <em>Variável contínua</em></li>
+<li><strong>Preditor 2 (<span class="math inline">\(X_2\)</span>):</strong> Interação Medicamentosa Potencial de Alto Risco (<em>Não vs.&nbsp;Sim</em>)</li>
+<li><strong>Preditor 3 (<span class="math inline">\(X_3\)</span>):</strong> Acompanhamento Farmacoterapêutico Intensivo (<em>Não vs.&nbsp;Sim</em>)</li>
+</ul>
+<p><strong>Perguntas de Pesquisa:</strong> O acompanhamento farmacoterapêutico intensivo reduz significativamente as chances de desenvolvimento de RAM grave? De que forma a presença de interações medicamentosas e a função renal (<span class="math inline">\(eTFG\)</span>) modulam essa probabilidade?</p>
+<ul>
+<li>Dados: <em>exemplo5.4.csv</em></li>
+</ul>
+</section>
+<section id="exemplo-5.4-1" class="slide level2">
+<h2>Exemplo 5.4</h2>
+<div style="font-size: 70%;">
+<p><em>Tabela de Estimativas da Regressão Logística Binária (<span class="math inline">\(N = 100\)</span>)</em></p>
+<table class="caption-top" style="width:100%;">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Variável</th>
+<th style="text-align: right;"><span class="math inline">\(\beta\)</span></th>
+<th style="text-align: right;">Erro-Padrão</th>
+<th style="text-align: right;"><span class="math inline">\(OR\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(Z\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(p\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Intercepto</strong></td>
+<td style="text-align: right;">4,01</td>
+<td style="text-align: right;">1,52</td>
+<td style="text-align: right;">55,23</td>
+<td style="text-align: right;">2,63</td>
+<td style="text-align: right;">0,009</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>eTFG</strong> <em>(<span class="math inline">\(\text{mL/min/1,73 m}^2\)</span>)</em></td>
+<td style="text-align: right;">-0,06</td>
+<td style="text-align: right;">0,02</td>
+<td style="text-align: right;">0,94</td>
+<td style="text-align: right;">-2,92</td>
+<td style="text-align: right;"><strong>0,004</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Interação Medicamentosa</strong> <em>(Sim vs.&nbsp;Não)</em></td>
+<td style="text-align: right;">2,55</td>
+<td style="text-align: right;">0,61</td>
+<td style="text-align: right;">12,84</td>
+<td style="text-align: right;">4,19</td>
+<td style="text-align: right;"><strong>&lt; 0,001</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Acompanhamento Farmacêutico</strong> <em>(Sim vs.&nbsp;Não)</em></td>
+<td style="text-align: right;">-2,69</td>
+<td style="text-align: right;">0,66</td>
+<td style="text-align: right;">0,07</td>
+<td style="text-align: right;">-4,05</td>
+<td style="text-align: right;"><strong>&lt; 0,001</strong></td>
+</tr>
+</tbody>
+</table>
+<p><em>Variável resposta: Ocorrência de RAM Grave (1 = Sim, 0 = Não; Nível de Referência = Não).</em></p>
+<p><em>Ajuste do Modelo: <span class="math inline">\(R^2_{\text{McFadden}} = 0{,}33\)</span>; Desviância = <span class="math inline">\(91{,}80\)</span>; Teste Global do Modelo: <span class="math inline">\(\chi^2(3) = 46{,}19\)</span> (<span class="math inline">\(p &lt; 0{,}001\)</span>).</em></p>
+<p><em>Estatísticas de Colinearidade: VIF máximo = 1,63; Tolerância mínima = 0,61 (ausência de multicolinearidade).</em></p>
+</div>
+</section>
+<section id="exemplo-5.4-2" class="slide level2">
+<h2>Exemplo 5.4</h2>
+<ul>
+<li><strong>Teste da Razão de Verosimilhanças:</strong>
+<ul>
+<li><strong>Interação Medicamentosa (<span class="math inline">\(p &lt; 0{,}001\)</span>)</strong>, <strong>Acompanhamento Farmacêutico (<span class="math inline">\(p &lt; 0{,}001\)</span>)</strong> e <strong>eTFG (<span class="math inline">\(p = 0{,}001\)</span>)</strong> contribuem de forma significativa para a explicação da ocorrência de RAM grave.</li>
+</ul></li>
+<li><strong>Interpretação da Razão de Chances (<span class="math inline">\(OR = e^\beta\)</span>):</strong>
+<ul>
+<li>Os níveis de referência são: <strong>Interação Medicamentosa = Não</strong> e <strong>Acompanhamento Farmacêutico = Não</strong>.</li>
+<li><strong><span class="math inline">\(OR &gt; 1\)</span>:</strong> Aumenta a chance do desfecho “RAM Grave = Sim” (fator de risco).</li>
+<li><strong><span class="math inline">\(OR &lt; 1\)</span>:</strong> Reduz a chance do desfecho “RAM Grave = Sim” (fator de proteção).</li>
+</ul></li>
+</ul>
+</section>
+<section id="exemplo-5.4-3" class="slide level2">
+<h2>Exemplo 5.4</h2>
+<ul>
+<li><strong>Interpretação dos Coeficientes e Razões de Chances (<span class="math inline">\(OR\)</span>):</strong>
+<ul>
+<li><strong>Acompanhamento Farmacêutico (<span class="math inline">\(OR = 0{,}07\)</span>; <span class="math inline">\(p &lt; 0{,}001\)</span>):</strong> Pacientes acompanhados pelo farmacêutico clínico apresentam uma <strong>redução de 93% nas chances de RAM grave</strong> (<span class="math inline">\(1 - 0{,}07 = 0{,}93\)</span>) em comparação aos não acompanhados.</li>
+<li><strong>Interação Medicamentosa (<span class="math inline">\(OR = 12{,}84\)</span>; <span class="math inline">\(p &lt; 0{,}001\)</span>):</strong> A presença de interações de alto risco <strong>aumenta em cerca de 13 vezes</strong> as chances de ocorrência de RAM grave.</li>
+<li><strong>eTFG (<span class="math inline">\(\beta = -0{,}06\)</span>; <span class="math inline">\(OR = 0{,}94\)</span>; <span class="math inline">\(p = 0{,}004\)</span>):</strong> Cada aumento de <span class="math inline">\(1\text{ mL/min/1,73 m}^2\)</span> na <span class="math inline">\(eTFG\)</span> reduz as chances de RAM grave em <strong>6%</strong> (<span class="math inline">\(1 - 0{,}94 = 0{,}06\)</span>).</li>
+</ul></li>
+</ul>
+</section>
+<section id="exercpicio-5.1" class="slide level2">
+<h2>Exercpicio 5.1</h2>
+<p>Um estudo ecológico avaliou fatores associados ao consumo de medicamentos nos municípios brasileiros. Cada município foi considerado como unidade de análise. O consumo de medicamentos foi expresso em doses diárias definidas (DDD) por 1.000 habitantes por dia.</p>
+<p><strong>Variáveis do Estudo:</strong></p>
+<ul>
+<li><strong>Desfecho (<span class="math inline">\(Y\)</span>):</strong> Consumo de medicamentos, expresso em DDD por 1.000 habitantes por dia — <em>Variável contínua</em></li>
+<li><strong>Variáveis explicativas:</strong> Índice de Desenvolvimento Humano Municipal (IDHM), Renda domiciliar per capita (R$), Percentual da população residente em área urbana (%), Densidade de estabelecimentos privados de saúde por 10.000 habitantes, Percentual da população feminina (%)</li>
+</ul>
+<p><strong>Pergunta de Pesquisa:</strong> Quais uais fatores estão associados ao consumo de medicamentos?</p>
+<p>Dados: <em>exercicio5.1.csv</em></p>
+</section>
+<section id="exercício-5.2-1" class="slide level2">
+<h2>Exercício 5.2</h2>
+<p>Um estudo transversal avaliou 250 pacientes em acompanhamento ambulatorial com o objetivo de investigar fatores associados à adesão ao tratamento medicamentoso. Foram coletadas informações demográficas, socioeconômicas, clínicas e relacionadas ao tratamento.</p>
+<p><strong>Variáveis do Estudo:</strong></p>
+<p><strong>Desfecho (<span class="math inline">\(Y\)</span>):</strong> Adherence — Não vs.&nbsp;Sim</p>
+<p><strong>Variáveis explicativas:</strong> Gender, Medication_Type, Dosage_mg, Previous_Adherence, Education_Level, Income (renda mensal), Social_Support_Level, Condition_Severity (gravidade da condição clínica), Comorbidities_Count (número de comorbidades), Healthcare_Access, Mental_Health_Status, Insurance_Coverage (cobertura por plano de saúde).</p>
+<p><strong>Pergunta de Pesquisa:</strong> Quais características dos pacientes estão associadas à probabilidade de apresentar adesão ao tratamento medicamentoso?</p>
+<ul>
+<li>Dados: <em>exercicio5.2.csv</em></li>
+</ul>
+</section>
+<section id="fim" class="title-slide slide level1 center">
+<h1>Fim</h1>
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="imagens/ufs_principal_positiva.png" class="slide-logo"></p>
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="05-Modelos_de_regressao_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="05-Modelos_de_regressao_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="05-Modelos_de_regressao_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="05-Modelos_de_regressao_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="05-Modelos_de_regressao_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="05-Modelos_de_regressao_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="05-Modelos_de_regressao_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="05-Modelos_de_regressao_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="05-Modelos_de_regressao_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="05-Modelos_de_regressao_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'fade',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'fast',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1600,
+
+        height: 900,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        // Bounds for smallest/largest possible scale to apply to content
+        minScale: 0.2,
+
+        maxScale: 2,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copiada");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copiada");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

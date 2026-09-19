@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>info – Bioestatística</title>
+<title>5. Modelos de regressão – Bioestatística</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,24 +26,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./aulas/01-Da_pergunta_cientifica_ao_tamanho_amostral/conteudo.html" rel="next">
-<link href="./img/FARMA0048_logo.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8873af521a4cdd2393546f4cdf709476.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../aulas/04-Comparacao_de_mais_de_dois_grupos/conteudo.html" rel="prev">
+<link href="../../img/FARMA0048_logo.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-8873af521a4cdd2393546f4cdf709476.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <a class="flex-grow-1 no-decor" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-          <h1 class="quarto-secondary-nav-title"></h1>
+          <h1 class="quarto-secondary-nav-title">5. Modelos de regressão</h1>
         </a>     
     </div>
   </nav>
@@ -95,16 +95,16 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
-      <a href="./index.html" class="sidebar-logo-link">
-      <img src="./img/FARMA0048_logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="./img/FARMA0048_logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../img/FARMA0048_logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../../img/FARMA0048_logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
       </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./info.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../info.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Informações da Disciplina</span></a>
   </div>
 </li>
@@ -119,31 +119,31 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./aulas/01-Da_pergunta_cientifica_ao_tamanho_amostral/conteudo.html" class="sidebar-item-text sidebar-link">
+  <a href="../../aulas/01-Da_pergunta_cientifica_ao_tamanho_amostral/conteudo.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1. Da pergunta científica ao plano amostral</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./aulas/02-Exploracao_descricao_e_visualizacao_de_dados/conteudo.html" class="sidebar-item-text sidebar-link">
+  <a href="../../aulas/02-Exploracao_descricao_e_visualizacao_de_dados/conteudo.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2. Exploração, descrição e visualização de dados</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./aulas/03-Comparacao_dois_grupos/conteudo.html" class="sidebar-item-text sidebar-link">
+  <a href="../../aulas/03-Comparacao_dois_grupos/conteudo.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">3. Comparação de dois grupos</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./aulas/04-Comparacao_de_mais_de_dois_grupos/conteudo.html" class="sidebar-item-text sidebar-link">
+  <a href="../../aulas/04-Comparacao_de_mais_de_dois_grupos/conteudo.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">4. Comparação de mais de dois grupos</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./aulas/05-Modelos_de_regressao/conteudo.html" class="sidebar-item-text sidebar-link">
+  <a href="../../aulas/05-Modelos_de_regressao/conteudo.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">5. Modelos de regressão</span></a>
   </div>
 </li>
@@ -156,24 +156,57 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">5. Modelos de regressão</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<section id="informações-da-disciplina" class="level2">
-<h2 data-anchor-id="informações-da-disciplina">Informações da Disciplina</h2>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Nesta aula, são abordadas a regressão linear para desfechos contínuos e a regressão logística para desfechos binários, incluindo interpretação dos coeficientes, razões de chances, intervalos de confiança, testes de significância, ajuste dos modelos, pressupostos e principais diagnósticos.</p>
+<p>Slides:</p>
+<div class="grid">
+<div class="g-col-12 g-col-md-4">
+<a href="slides/05-Modelos_de_regressao.html" target="_blank" class="thumb html-slide"> <img src="slides/05-Modelos_de_regressao.png" alt="Slides da aula em HTML" class="img-fluid"> </a>
+<p class="text-center">
+Slides da aula em HTML
+</p>
+</div>
+<div class="g-col-12 g-col-md-4">
+<a href="slides/05-Modelos_de_regressao.pdf" target="_blank" class="thumb pdf-slide"> <img src="slides/05-Modelos_de_regressao.png" alt="Slides da aula em PDF" class="img-fluid"> </a>
+<p class="text-center">
+Slides da aula em PDF
+</p>
+</div>
+</div>
+<p>Bases de dados dos exemplos:</p>
 <ul>
-<li><strong>Componente curricular:</strong> FARMA0048 – Bioestatística</li>
-<li><strong>Carga Horária:</strong> 30 horas</li>
-<li><strong>Unidade Responsável:</strong> Programa de Pós-Graduação em Ciências Farmacêuticas</li>
-<li><strong>Docente Responsável:</strong> Prof.&nbsp;Dr.&nbsp;Sadraque E. F. Lucena</li>
-<li><strong>E-mail Docente:</strong> sadraquelucena@academicos.ufs.br</li>
-<li><strong>Plano de Ensino da Disciplina:</strong> <a href="./plano_de_ensino/plano_de_ensino_FARMA0048-BIOESTATÍSTICA.pdf" target="_blank">Baixe aqui</a></li>
+<li><a href="slides/dados/exemplo5.1.csv.1.csv" download="exemplo5.1.csv">exemplo5.1.csv</a></li>
+<li><a href="slides/dados/exemplo5.2.csv" download="exemplo5.2.csv">exemplo5.2.csv</a></li>
+<li><a href="slides/dados/exemplo5.3.csv" download="exemplo5.3.csv">exemplo5.3.csv</a></li>
+<li><a href="slides/dados/exemplo5.4.csv" download="exemplo5.4.csv">exemplo5.4.csv</a></li>
+</ul>
+<p>Bases de dados dos exercícios:</p>
+<ul>
+<li><a href="slides/dados/exercicio5.1.csv" download="exercicio5.1.csv">exercicio5.1.csv</a></li>
+<li><a href="slides/dados/exercicio5.2.csv" download="exercicio5.2.csv">exercicio5.2.csv</a></li>
 </ul>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -571,11 +604,11 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../../aulas/04-Comparacao_de_mais_de_dois_grupos/conteudo.html" class="pagination-link" aria-label="4. Comparação de mais de dois grupos">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">4. Comparação de mais de dois grupos</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./aulas/01-Da_pergunta_cientifica_ao_tamanho_amostral/conteudo.html" class="pagination-link" aria-label="1. Da pergunta científica ao plano amostral">
-        <span class="nav-page-text">1. Da pergunta científica ao plano amostral</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

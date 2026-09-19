@@ -69,5 +69,16 @@
     "title": "Bem-vindo(a)!",
     "section": "",
     "text": "Bem-vindo(a)!\nEste espaço foi criado pelo Prof. Dr. Sadraque E. F. Lucena para centralizar todos os conteúdos, atividades e o cronograma da componenete curricular ESTAT0048 – Bioestatística, ofertado pelo Programa de Pós-Graduação em Ciências Farmacêuticas da Universidade Federal de Sergipe."
+  },
+  {
+    "objectID": "aulas/05-Modelos_de_regressao/conteudo.html",
+    "href": "aulas/05-Modelos_de_regressao/conteudo.html",
+    "title": "5. Modelos de regressão",
+    "section": "",
+    "text": "Nesta aula, são abordadas a regressão linear para desfechos contínuos e a regressão logística para desfechos binários, incluindo interpretação dos coeficientes, razões de chances, intervalos de confiança, testes de significância, ajuste dos modelos, pressupostos e principais diagnósticos.\nSlides:\n\n\n  \n\nSlides da aula em HTML\n\n\n\n  \n\nSlides da aula em PDF\n\n\n\nBases de dados dos exemplos:\n\nexemplo5.1.csv\nexemplo5.2.csv\nexemplo5.3.csv\nexemplo5.4.csv\n\nBases de dados dos exercícios:\n\nexercicio5.1.csv\nexercicio5.2.csv",
+    "crumbs": [
+      "Aulas",
+      "5. Modelos de regressão"
+    ]
   }
 ]

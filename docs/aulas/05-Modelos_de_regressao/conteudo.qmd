@@ -1,0 +1,70 @@
+---
+title: "5. Modelos de regressão"
+format:
+  html:
+    toc: false
+    anchor-sections: false
+---
+
+Nesta aula, são abordadas a regressão linear para desfechos contínuos e a regressão logística para desfechos binários, incluindo interpretação dos coeficientes, razões de chances, intervalos de confiança, testes de significância, ajuste dos modelos, pressupostos e principais diagnósticos.
+
+
+
+Slides:
+
+
+```{r}
+#| echo: false
+#| eval: true
+
+# Pega o nome do arquivos html e pdf automaticamente
+html_slide <- list.files("slides", pattern = "\\.html$", full.names = FALSE)
+pdf_slide  <- list.files("slides", pattern = "\\.pdf$", full.names = FALSE)
+png_slide <- sub("\\.pdf$", ".png", pdf_slide)
+```
+
+:::: {.grid}
+
+::: {.g-col-12 .g-col-md-4}
+
+<a href="slides/`r html_slide`"
+   target="_blank"
+   class="thumb html-slide">
+<img
+  src="slides/`r png_slide`"
+  alt="Slides da aula em HTML"
+  class="img-fluid">
+</a>
+<p class="text-center">Slides da aula em HTML</p>
+
+:::
+
+::: {.g-col-12 .g-col-md-4}
+
+<a href="slides/`r pdf_slide`"
+   target="_blank"
+   class="thumb pdf-slide">
+<img
+  src="slides/`r png_slide`"
+  alt="Slides da aula em PDF"
+  class="img-fluid">
+</a>
+<p class="text-center">Slides da aula em PDF</p>
+
+:::
+
+::::
+
+Bases de dados dos exemplos:
+
+- [exemplo5.1.csv](slides/dados/exemplo5.1.csv.1.csv){download="exemplo5.1.csv"}
+- [exemplo5.2.csv](slides/dados/exemplo5.2.csv){download="exemplo5.2.csv"}
+- [exemplo5.3.csv](slides/dados/exemplo5.3.csv){download="exemplo5.3.csv"}
+- [exemplo5.4.csv](slides/dados/exemplo5.4.csv){download="exemplo5.4.csv"}
+
+
+
+Bases de dados dos exercícios:
+
+- [exercicio5.1.csv](slides/dados/exercicio5.1.csv){download="exercicio5.1.csv"}
+- [exercicio5.2.csv](slides/dados/exercicio5.2.csv){download="exercicio5.2.csv"}
